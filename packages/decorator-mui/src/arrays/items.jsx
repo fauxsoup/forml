@@ -17,15 +17,15 @@ const StyledPaper = styled(Paper, {
     flex: '1 1 auto',
     ...(props.disablePadding
         ? {
-              marginTop: 0,
-              marginBottom: 0,
-          }
+            marginTop: 0,
+            marginBottom: 0,
+        }
         : {}),
     ...(props.disableGutters
         ? {
-              marginLeft: 0,
-              marginRight: 0,
-          }
+            marginLeft: 0,
+            marginRight: 0,
+        }
         : {}),
 }));
 const StyledList = forwardRef((props, ref) => (
@@ -66,8 +66,8 @@ function Items(props, ref) {
             'addText' in form
                 ? localizer.getLocalizedString(form.addText)
                 : title
-                ? `${localizer.getLocalizedString('Add')} ${title}`
-                : localizer.getLocalizedString('Add'),
+                    ? `${localizer.getLocalizedString('Add')} ${title}`
+                    : localizer.getLocalizedString('Add'),
         [form, localizer, title]
     );
 
@@ -97,7 +97,7 @@ function Items(props, ref) {
 }
 
 const emptyTypographProps = { align: 'center' };
-const Empty = memo(function Empty(props) {
+function Empty(props) {
     return (
         <ListItem divider>
             <ListItemText
@@ -106,8 +106,8 @@ const Empty = memo(function Empty(props) {
             />
         </ListItem>
     );
-});
-const AddButton = memo(function AddButton(props) {
+}
+function AddButton(props) {
     const { onClick, color, disabled, children } = props;
     return (
         <Button
@@ -120,9 +120,9 @@ const AddButton = memo(function AddButton(props) {
             {children}
         </Button>
     );
-});
+}
 
-const HeaderTitle = memo(function Header(props) {
+function HeaderTitle(props) {
     const { color, primary, secondary } = props;
     return (
         <ListItemText
@@ -135,17 +135,17 @@ const HeaderTitle = memo(function Header(props) {
             secondary={secondary}
         />
     );
-});
+}
 
-const HeaderIcon = memo(function HeaderIcon(props) {
+function HeaderIcon(props) {
     const { color, children } = props;
     return (
         <ListItemIcon key="icon" edge="start">
             <Icon color={color}>{children}</Icon>
         </ListItemIcon>
     );
-});
-const Header = memo(function Header(props) {
+}
+function Header(props) {
     const { color, icon, title, error, description, addText, disabled } = props;
     return (
         <ListItem key="title" dense={false} divider>
@@ -160,5 +160,5 @@ const Header = memo(function Header(props) {
             </AddButton>
         </ListItem>
     );
-});
+}
 export default forwardRef(Items);

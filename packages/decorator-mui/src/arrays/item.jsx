@@ -8,11 +8,11 @@ import React, { forwardRef, memo, useMemo } from 'react';
 
 const log = debug('forml:decorator-mui:arrays:item');
 
-const DragHandle = memo((props) => (
+const DragHandle = (props) => (
     <Box {...props} sx={{ display: 'flex', flexDirection: 'column', p: 1.5 }}>
         <Icon>drag_handle</Icon>
     </Box>
-));
+);
 const FormsContainer = styled('div')(({ theme }) => ({
     display: 'flex',
     flexDirection: 'column',
@@ -25,79 +25,65 @@ const FormsContainer = styled('div')(({ theme }) => ({
     borderRightColor: theme.palette.divider,
     padding: theme.spacing(1),
 }));
-const Controls = memo(
-    styled('div')(({ theme }) => ({
+const Controls = styled('div')(({ theme }) => ({
+    display: 'flex',
+    flexDirection: 'column',
+    '&:has(button:only-child)': {
         display: 'flex',
         flexDirection: 'column',
-        '&:has(button:only-child)': {
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-        },
-    }))
-);
+        justifyContent: 'center',
+    },
+}));
 const Spacer = styled('div')(({ theme }) => ({
     flex: '1 0 auto',
     width: 'fill-available',
     borderBottom: `1px solid ${theme.palette?.divider}`,
 }));
-const OnlyDestroy = memo(
-    function OnlyDestroy(props) {
-        const { onClick, disabled } = props;
-        return (
-            <Button
-                onClick={onClick}
-                disabled={disabled}
-                color="secondary"
-                size="small"
-                sx={useMemo(
-                    () => ({
-                        display: 'inline-flex !important',
-                        flexDirection: 'column',
-                        width: (theme) => theme.spacing(6),
-                        minWidth: (theme) => theme.spacing(6),
-                        border: 0,
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                    }),
-                    []
-                )}
-            >
-                <Icon>delete_forever</Icon>
-            </Button>
-        );
-    },
-    (oldProps, newProps) =>
-        ['onClick', 'disabled'].every((key) =>
-            Object.is(oldProps[key], newProps[key])
-        )
-);
-const Destroy = memo(
-    function Destroy(props) {
-        const { onClick, disabled } = props;
-        return (
-            <Button
-                onClick={onClick}
-                disabled={disabled}
-                color="secondary"
-                size="small"
-                sx={useMemo(
-                    () => ({
-                        width: (theme) => theme.spacing(6),
-                        minWidth: (theme) => theme.spacing(6),
-                    }),
-                    []
-                )}
-            >
-                <Icon>delete_forever</Icon>
-            </Button>
-        );
-    },
-    (oldProps, newProps) =>
-        ['onClick', 'disabled'].every((key) =>
-            Object.is(oldProps[key], newProps[key])
-        )
-);
+function OnlyDestroy(props) {
+    const { onClick, disabled } = props;
+    return (
+        <Button
+            onClick={onClick}
+            disabled={disabled}
+            color="secondary"
+            size="small"
+            sx={useMemo(
+                () => ({
+                    display: 'inline-flex !important',
+                    flexDirection: 'column',
+                    width: (theme) => theme.spacing(6),
+                    minWidth: (theme) => theme.spacing(6),
+                    border: 0,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                }),
+                []
+            )}
+        >
+            <Icon>delete_forever</Icon>
+        </Button>
+    );
+}
+function Destroy(props) {
+    const { onClick, disabled } = props;
+    return (
+        <Button
+            onClick={onClick}
+            disabled={disabled}
+            color="secondary"
+            size="small"
+            sx={useMemo(
+                () => ({
+                    width: (theme) => theme.spacing(6),
+                    minWidth: (theme) => theme.spacing(6),
+                }),
+                []
+            )}
+        >
+            <Icon>delete_forever</Icon>
+        </Button>
+    );
+}
 const MovementButton = styled(Button, {
     shouldForwardProp: (prop) => !['spacer'].includes(prop),
 })(({ theme, spacer }) => ({
@@ -166,38 +152,31 @@ export const ItemComponent = function ItemComponent(props, ref) {
     );
 };
 
-const MovementButtons = memo(
-    function MovementButtons(props) {
-        const { render, moveUp, moveDown, disabled } = props;
-        if (render) {
-            return (
-                <>
-                    <MovementButton
-                        onClick={moveUp}
-                        size="small"
-                        disabled={disabled}
-                    >
-                        <Icon>keyboard_arrow_up</Icon>
-                    </MovementButton>
-                    <MovementButton
-                        onClick={moveDown}
-                        size="small"
-                        disabled={disabled}
-                        spacer
-                    >
-                        <Icon>keyboard_arrow_down</Icon>
-                    </MovementButton>
-                    <Spacer />
-                </>
-            );
-        } else {
-            return null;
-        }
-    },
-    (oldProps, newProps) =>
-        ['render', 'moveDown', 'moveUp', 'disabled'].every((key) =>
-            Object.is(oldProps[key], newProps[key])
-        )
-);
-
-export default memo(forwardRef(ItemComponent));
+function MovementButtons(props) {
+    const { render, moveUp, moveDown, disabled } = props;
+    if (render) {
+        return (
+            <>
+                <MovementButton
+                    onClick={moveUp}
+                    size="small"
+                    disabled={disabled}
+                >
+                    <Icon>keyboard_arrow_up</Icon>
+                </MovementButton>
+                <MovementButton
+                    onClick={moveDown}
+                    size="small"
+                    disabled={disabled}
+                    spacer
+                >
+                    <Icon>keyboard_arrow_down</Icon>
+                </MovementButton>
+                <Spacer />
+            </>
+        );
+    } else {
+        return null;
+    }
+}
+export default forwardRef(ItemComponent);
