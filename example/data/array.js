@@ -4,7 +4,7 @@ module.exports = {
     mapper: comment.mapper,
     schema: {
         type: 'object',
-        title: 'Comment',
+        title: 'Comments',
         description: 'Shouts into the void',
         required: ['comments'],
         properties: {
