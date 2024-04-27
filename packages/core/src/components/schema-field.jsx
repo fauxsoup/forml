@@ -6,28 +6,21 @@ import isEqual from 'lodash/isEqual';
 import { useMappedField, useActionsFor, useModelFor } from '@forml/hooks';
 import { FormType } from '../types';
 
-const log = debug('forml:schema-field');
+const log = debug('forml:core:schema-field');
 
-const FieldRenderer = memo(
-    function FieldRenderer(props) {
-        const { Field, ...forwardProps } = props;
-        return <Field {...forwardProps} />;
-    },
-    function arePropsEqual(oldProps, newProps) {
-        return (
-            oldProps.path === newProps.path &&
-            (Object.is(oldProps.value, newProps.value) ||
-                isEqual(oldProps.value, newProps.value))
-        );
-    }
-);
+function FieldRenderer(props) {
+    const { Field, ...forwardProps } = props;
+    return <Field {...forwardProps} />;
+}
 
 function ValueField(props) {
-    const { form, parent } = props;
+    const { form, parent, onChange } = props;
 
     const Field = useMappedField(form.type);
     const field = useModelFor(form.key);
     const actions = useActionsFor(form.key);
+
+    const onChangeSet = useCallback(
         (event, value) => {
             const nextModel = actions.setValue(value);
             if (props.onChange) {
@@ -53,15 +46,16 @@ function ValueField(props) {
             path={field.path}
             schema={field.schema}
             value={field.model}
-            onChange={onChange}
+            onChangeSet={onChangeSet}
             //error={error}
             parent={parent}
+            onChange={onChange}
         />
     );
 }
 
 function WrapperField(props) {
-    const { form, parent } = props;
+    const { form, parent, onChange } = props;
     const Field = useMappedField(form.type);
 
     if (!Field) {
@@ -69,7 +63,7 @@ function WrapperField(props) {
         return null;
     }
 
-    return <Field form={form} parent={parent} />;
+    return <Field form={form} parent={parent} onChange={onChange} />;
 }
 
 export function SchemaField(props) {
