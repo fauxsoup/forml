@@ -16,7 +16,7 @@ export default function DateTime(props) {
     const { readonly: disabled } = form;
     const onChange = useCallback(
         function onChange(e) {
-            props.onChange(e, e.target.value);
+            props.onChangeSet(e, e.target.value);
         },
         [props.onChange]
     );

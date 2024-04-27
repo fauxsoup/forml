@@ -30,9 +30,9 @@ export default function File(props) {
                 setDisplay('');
             }
 
-            return props.onChange(event, result);
+            return props.onChangeSet(event, result);
         },
-        [form.format, setDisplay, props.onChange]
+        [form.format, setDisplay, props.onChangeSet]
     );
 
     title = localizer.getLocalizedString(title);

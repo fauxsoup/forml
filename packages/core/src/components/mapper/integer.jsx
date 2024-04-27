@@ -38,9 +38,9 @@ export default function Integer(props) {
                 return;
             }
 
-            props.onChange(e, value);
+            props.onChangeSet(e, value);
         },
-        [props.onChange]
+        [props.onChangeSet]
     );
 
     return (

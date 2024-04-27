@@ -28,7 +28,7 @@ const Tab = forwardRef(function Tab(props, ref) {
 });
 
 const Panel = forwardRef(function Panel(props, ref) {
-    const { parent, index, activeIndex } = props;
+    const { parent, index, activeIndex, onChange } = props;
     const deco = useDecorator();
     const form = parent.tabs[index];
     const activeDelta = index - activeIndex;
@@ -41,7 +41,7 @@ const Panel = forwardRef(function Panel(props, ref) {
             activeDelta={activeDelta}
             ref={ref}
         >
-            <SchemaField form={form} schema={schema} />
+            <SchemaField form={form} schema={schema} onChange={onChange} />
         </deco.Tabs.Panel>
     );
 });

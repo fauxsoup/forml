@@ -44,9 +44,9 @@ export default function Number(props) {
 
             if (appendPoint) value = `${value}.`;
 
-            props.onChange(e, value);
+            props.onChangeSet(e, value);
         },
-        [props.onChange]
+        [props.onChangeSet]
     );
 
     return (

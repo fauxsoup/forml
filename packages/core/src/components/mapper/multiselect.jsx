@@ -30,7 +30,7 @@ export default function Multiselect(props) {
 
     const onChange = useCallback(
         function onChange(event) {
-            props.onChange(
+            props.onChangeSet(
                 event,
                 Array.from(event.target.selectedOptions).map(
                     (option) => option.value
@@ -103,5 +103,5 @@ Multiselect.propTypes = {
     /** Any errors associated with the form's key */
     error: t.string,
     /** The current value of the string */
-    value: t.string,
+    value: t.arrayOf(t.string),
 };

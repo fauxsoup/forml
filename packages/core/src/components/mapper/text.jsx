@@ -19,9 +19,9 @@ export default function Text(props) {
     const id = useMemo(() => ObjectPath.stringify(form.key), [form.key]);
     const onChange = useCallback(
         function onChange(e) {
-            props.onChange(e, e.target.value);
+            props.onChangeSet(e, e.target.value);
         },
-        [props.onChange]
+        [props.onChangeSet]
     );
 
     return (

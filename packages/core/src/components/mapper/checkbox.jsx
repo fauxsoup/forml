@@ -17,7 +17,7 @@ export default function Checkbox(props) {
     const localize = useLocalizer();
     const onChange = useCallback(
         function onChange(event) {
-            props.onChange(event, event.target.checked);
+            props.onChangeSet(event, event.target.checked);
         },
         [props.onChange]
     );

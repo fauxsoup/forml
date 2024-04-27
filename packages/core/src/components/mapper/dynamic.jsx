@@ -1,6 +1,9 @@
+import debug from 'debug';
 import React, { useMemo } from 'react';
 
 import { useRenderingContext } from '@forml/hooks';
+
+const log = debug('forml:core:dynamic');
 
 export default function makeDynamic(SchemaForm) {
     function GeneratedDynamic(props) {

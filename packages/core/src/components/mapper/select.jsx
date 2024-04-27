@@ -38,13 +38,13 @@ export default function Select(props) {
 
     const onChange = useCallback(
         function onChange(event) {
-            props.onChange(event, event.target.value);
+            props.onChangeSet(event, event.target.value);
         },
         [props.onChange]
     );
 
     const menuItems = useMemo(
-        function () {
+        function() {
             const menuItems = [];
             for (let i = 0; i < form.titleMap.length; i++) {
                 const name = localizer.getLocalizedString(
