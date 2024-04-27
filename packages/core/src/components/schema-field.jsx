@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React, { memo, useMemo, useCallback } from 'react';
 import isEqual from 'lodash/isEqual';
 
-import { useMappedField, useKey } from '@forml/hooks';
+import { useMappedField, useActionsFor, useModelFor } from '@forml/hooks';
 import { FormType } from '../types';
 
 const log = debug('forml:schema-field');
@@ -26,12 +26,15 @@ function ValueField(props) {
     const { form, parent } = props;
 
     const Field = useMappedField(form.type);
-    const field = useKey(form.key);
-    const onChange = useCallback(
+    const field = useModelFor(form.key);
+    const actions = useActionsFor(form.key);
         (event, value) => {
-            field.actions.setValue(value);
+            const nextModel = actions.setValue(value);
+            if (props.onChange) {
+                props.onChange(event, nextModel);
+            }
         },
-        [field.actions.setValue]
+        [props.onChange]
     );
 
     if (!Field) {
