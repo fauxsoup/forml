@@ -5,10 +5,10 @@ import PropTypes from 'prop-types';
 import React, { useCallback, useEffect, useMemo, useRef } from 'react';
 
 import { ModelContext, RenderingContext } from '@forml/context';
-import { useModelReducer } from '@forml/hooks';
-import { merge } from '../forms';
+import { createModelStore } from '@forml/hooks';
 import { defaultLocalizer, getLocalizer } from '../localizer';
-import * as Types from '../types';
+import { FormsType } from '../types';
+import { SchemaRender } from './schema-render';
 
 import { decoratorShape, defaultDecorator, getDecorator } from '../decorators';
 import { defaultMapper, getMapper, mapperShape } from './mapper';
@@ -60,28 +60,6 @@ export function SchemaForm({
         [props.onChange]
     );
 
-    const modelContext = useModelReducer(schema, model);
-    const renderingContext = useMemo(
-        () => ({
-            localizer,
-            mapper,
-            decorator,
-        }),
-        [decorator, localizer, mapper]
-    );
-
-    const shouldFire = useRef(false);
-    useEffect(
-        function () {
-            if (shouldFire.current) {
-                const { model } = modelContext.state;
-                onChange({ target: { value: model } }, model);
-            } else {
-                shouldFire.current = true;
-            }
-        },
-        [modelContext.state, onChange]
-    );
 
     const children = useMemo(
         () =>
@@ -99,7 +77,9 @@ export function SchemaForm({
             }),
         [merged, onChange]
     );
+    const renderingContext = useMemo(() => ({ mapper, decorator, localizer }), [mapper, decorator, localizer]);
 
+    const modelContext = useRef(createModelStore(schema, model)).current;
     return (
         <RenderingContext.Provider value={renderingContext}>
             <ModelContext.Provider value={modelContext}>
