@@ -25,15 +25,15 @@ import Item from './Item';
  * ```
  */
 
-function ArrayComponent(props, ref) {
-    const { form, schema, value } = props;
+function ArrayComponent(props) {
+    const { form, schema, onChange } = props;
 
     const type = useMemo(() => objectPath.stringify(form.key), [form.key]);
     const array = useArrayKey(form.key);
 
     const parent = form;
     const items = useMemo(
-        function () {
+        function() {
             const arrays = [];
             const count = array.model?.length ?? 0;
             for (let index = 0; index < count; ++index) {
@@ -41,20 +41,22 @@ function ArrayComponent(props, ref) {
                 arrays.push(
                     <Item
                         key={key}
-                        {...array.actions}
+                        {...array}
                         id={key}
-                        form={form}
                         forms={parent.items}
                         index={index}
+                        form={form}
+                        parent={parent}
                         type={type}
                         schema={schema}
+                        onChange={onChange}
                         value={array.model[index]}
                     />
                 );
             }
             return arrays;
         },
-        [type, form, array]
+        [type, form, array, onChange, parent]
     );
 
     const dragDrop = useMemo(
@@ -83,13 +85,13 @@ const DraggableArrayContainer = forwardRef(
                 } else if (result.destination.index === result.source.index) {
                     return;
                 } else {
-                    array.actions.moveArray(
+                    array.moveArray(
                         result.source.index,
                         result.destination.index
                     );
                 }
             },
-            [array.actions.moveArray]
+            [array.moveArray]
         );
         const renderDraggableItems = useCallback(
             (provided) => {
@@ -122,7 +124,7 @@ const DraggableArrayContainer = forwardRef(
 );
 const NormalArrayContainer = forwardRef(
     function NormalArrayContainer(props, ref) {
-        const { form, array } = props;
+        const { form, array, onChange } = props;
         const { readonly: disabled, titleFun } = form;
         const deco = useDecorator();
         const localizer = useLocalizer();
@@ -136,10 +138,15 @@ const NormalArrayContainer = forwardRef(
         const description = localizer.getLocalizedString(form.description);
         const { error } = props;
 
+        const addItem = useCallback((event) => {
+            const nextModel = array.appendArray(form.key)
+            onChange(event, nextModel);
+        }, [array.appendArray, form.key, onChange]);
+
         return (
             <deco.Arrays.Items
                 className={form.htmlClass}
-                add={array.actions.appendArray}
+                add={addItem}
                 value={array.model}
                 title={title}
                 description={description}
@@ -155,7 +162,7 @@ const NormalArrayContainer = forwardRef(
 );
 
 export { ArrayComponent as Array, Item };
-export default forwardRef(ArrayComponent);
+export default ArrayComponent;
 
 ArrayComponent.propTypes = {
     /** The configuration object for this section of the form */
