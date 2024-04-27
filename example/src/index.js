@@ -14,31 +14,31 @@ import 'material-icons/iconfont/material-icons.css';
 
 const theme = createTheme();
 
-ReactPDF.Font.register({
-    family: 'Material Icons',
-    src: MaterialIcons,
-    fontStyle: 'normal',
-});
-ReactPDF.Font.register({
-    family: 'Roboto',
-    fonts: [
-        {
-            src: Roboto,
-            fontWeight: 'normal',
-            fontStyle: 'normal',
-        },
-        {
-            src: RobotoBold,
-            fontWeight: 'bold',
-            fontStyle: 'normal',
-        },
-        {
-            src: RobotoLight,
-            fontWeight: 'light',
-            fontStyle: 'normal',
-        },
-    ],
-});
+// ReactPDF.Font.register({
+//     family: 'Material Icons',
+//     src: MaterialIcons,
+//     fontStyle: 'normal',
+// });
+// ReactPDF.Font.register({
+//     family: 'Roboto',
+//     fonts: [
+//         {
+//             src: Roboto,
+//             fontWeight: 'normal',
+//             fontStyle: 'normal',
+//         },
+//         {
+//             src: RobotoBold,
+//             fontWeight: 'bold',
+//             fontStyle: 'normal',
+//         },
+//         {
+//             src: RobotoLight,
+//             fontWeight: 'light',
+//             fontStyle: 'normal',
+//         },
+//     ],
+// });
 
 const log = debug('forml:example');
 
