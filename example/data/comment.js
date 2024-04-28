@@ -79,14 +79,14 @@ export function form() {
     const email = useValue(['email']);
     const spamOption = useMemo(
         () =>
-            email
+            !!email
                 ? {
                       key: 'spam',
                       type: 'checkbox',
                       title: 'Yes I want spam.',
                   }
                 : null,
-        [email]
+        [!!email]
     );
     return useMemo(
         () => [
