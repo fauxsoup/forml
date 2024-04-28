@@ -18,5 +18,6 @@ export const RenderingContext = createContext({
     decorator: {},
     localizer: {},
 });
+export const FormContext = createContext({});
 
 export default ModelContext;
