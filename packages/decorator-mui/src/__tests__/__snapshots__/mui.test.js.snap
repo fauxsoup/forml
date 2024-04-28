@@ -6,39 +6,60 @@ exports[`Material UI with no model renders empty root date consistently 1`] = `
     class="MuiFormControl-root css-1lq4zch-MuiFormControl-root"
   >
     <div
-      class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary Mui-error MuiInputBase-formControl MuiInputBase-adornedEnd css-1ptx2yq-MuiInputBase-root-MuiInput-root"
+      class="MuiFormControl-root MuiTextField-root css-25jgoa-MuiFormControl-root-MuiTextField-root"
     >
-      <input
-        aria-invalid="true"
-        class="MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedEnd css-1x51dt5-MuiInputBase-input-MuiInput-input"
-        placeholder="mm/dd/yyyy"
-        type="text"
-        value=""
-      />
       <div
-        class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-standard MuiInputAdornment-sizeMedium css-1laqsz7-MuiInputAdornment-root"
+        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary Mui-error MuiInputBase-formControl MuiInputBase-adornedEnd css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root"
       >
-        <button
-          aria-label="Choose date"
-          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeMedium css-1yq5fb3-MuiButtonBase-root-MuiIconButton-root"
-          tabindex="0"
-          type="button"
+        <input
+          aria-invalid="true"
+          autocomplete="off"
+          class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"
+          id=":r0:"
+          inputmode="text"
+          placeholder="MM/DD/YYYY"
+          type="text"
+          value="MM/DD/YYYY"
+        />
+        <div
+          class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-1laqsz7-MuiInputAdornment-root"
         >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-            data-testid="CalendarIcon"
-            focusable="false"
-            viewBox="0 0 24 24"
+          <button
+            aria-label="Choose date"
+            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeMedium css-1yq5fb3-MuiButtonBase-root-MuiIconButton-root"
+            tabindex="0"
+            type="button"
           >
-            <path
-              d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+              data-testid="CalendarIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"
+              />
+            </svg>
+            <span
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
             />
-          </svg>
-          <span
-            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-          />
-        </button>
+          </button>
+        </div>
+        <fieldset
+          aria-hidden="true"
+          class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+        >
+          <legend
+            class="css-ihdtdm"
+          >
+            <span
+              class="notranslate"
+            >
+              ​
+            </span>
+          </legend>
+        </fieldset>
       </div>
     </div>
   </div>
@@ -51,39 +72,60 @@ exports[`Material UI with no model renders empty root date-time consistently 1`]
     class="MuiFormControl-root css-1lq4zch-MuiFormControl-root"
   >
     <div
-      class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary Mui-error MuiInputBase-formControl MuiInputBase-adornedEnd css-1ptx2yq-MuiInputBase-root-MuiInput-root"
+      class="MuiFormControl-root MuiTextField-root css-25jgoa-MuiFormControl-root-MuiTextField-root"
     >
-      <input
-        aria-invalid="true"
-        class="MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedEnd css-1x51dt5-MuiInputBase-input-MuiInput-input"
-        placeholder="mm/dd/yyyy hh:mm (a|p)m"
-        type="tel"
-        value=""
-      />
       <div
-        class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-standard MuiInputAdornment-sizeMedium css-1laqsz7-MuiInputAdornment-root"
+        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary Mui-error MuiInputBase-formControl MuiInputBase-adornedEnd css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root"
       >
-        <button
-          aria-label="Choose date"
-          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeMedium css-1yq5fb3-MuiButtonBase-root-MuiIconButton-root"
-          tabindex="0"
-          type="button"
+        <input
+          aria-invalid="true"
+          autocomplete="off"
+          class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"
+          id=":r2:"
+          inputmode="text"
+          placeholder="MM/DD/YYYY hh:mm aa"
+          type="text"
+          value="MM/DD/YYYY hh:mm aa"
+        />
+        <div
+          class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-1laqsz7-MuiInputAdornment-root"
         >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-            data-testid="CalendarIcon"
-            focusable="false"
-            viewBox="0 0 24 24"
+          <button
+            aria-label="Choose date"
+            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeMedium css-1yq5fb3-MuiButtonBase-root-MuiIconButton-root"
+            tabindex="0"
+            type="button"
           >
-            <path
-              d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+              data-testid="CalendarIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"
+              />
+            </svg>
+            <span
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
             />
-          </svg>
-          <span
-            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-          />
-        </button>
+          </button>
+        </div>
+        <fieldset
+          aria-hidden="true"
+          class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+        >
+          <legend
+            class="css-ihdtdm"
+          >
+            <span
+              class="notranslate"
+            >
+              ​
+            </span>
+          </legend>
+        </fieldset>
       </div>
     </div>
   </div>
@@ -96,13 +138,14 @@ exports[`Material UI with no model renders empty root enumeration consistently 1
     class="MuiFormControl-root css-1lq4zch-MuiFormControl-root"
   >
     <div
-      class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl  css-a3l6o-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+      class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl  css-n70jm4-MuiInputBase-root-MuiInput-root-MuiSelect-root"
     >
       <div
+        aria-controls=":r4:"
         aria-expanded="false"
         aria-haspopup="listbox"
         class="MuiSelect-select MuiSelect-standard MuiInputBase-input MuiInput-input css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-        role="button"
+        role="combobox"
         tabindex="0"
       >
         <span
@@ -113,6 +156,7 @@ exports[`Material UI with no model renders empty root enumeration consistently 1
       </div>
       <input
         aria-hidden="true"
+        aria-invalid="false"
         class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
         tabindex="-1"
         value=""
@@ -139,7 +183,7 @@ exports[`Material UI with no model renders empty root integer consistently 1`] =
     class="MuiFormControl-root css-1lq4zch-MuiFormControl-root"
   >
     <div
-      class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-vp6a25-MuiInputBase-root-MuiInput-root"
+      class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-zcpmuq-MuiInputBase-root-MuiInput-root"
     >
       <input
         aria-invalid="false"
@@ -159,13 +203,14 @@ exports[`Material UI with no model renders empty root multiselect consistently 1
     class="MuiFormControl-root css-1lq4zch-MuiFormControl-root"
   >
     <div
-      class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl  css-a3l6o-MuiInputBase-root-MuiInput-root-MuiSelect-root"
+      class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl  css-n70jm4-MuiInputBase-root-MuiInput-root-MuiSelect-root"
     >
       <div
+        aria-controls=":r5:"
         aria-expanded="false"
         aria-haspopup="listbox"
         class="MuiSelect-select MuiSelect-standard MuiSelect-multiple MuiInputBase-input MuiInput-input css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input"
-        role="button"
+        role="combobox"
         tabindex="0"
       >
         <span
@@ -176,6 +221,7 @@ exports[`Material UI with no model renders empty root multiselect consistently 1
       </div>
       <input
         aria-hidden="true"
+        aria-invalid="false"
         class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
         tabindex="-1"
         value=""
@@ -202,7 +248,7 @@ exports[`Material UI with no model renders empty root number consistently 1`] = 
     class="MuiFormControl-root css-1lq4zch-MuiFormControl-root"
   >
     <div
-      class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-vp6a25-MuiInputBase-root-MuiInput-root"
+      class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-zcpmuq-MuiInputBase-root-MuiInput-root"
     >
       <input
         aria-invalid="false"
@@ -223,12 +269,13 @@ exports[`Material UI with no model renders empty root object consistently 1`] = 
   >
     <div
       class="MuiBox-root css-rwzwky"
+      layout="vertical"
     >
       <div
         class="MuiFormControl-root css-1lq4zch-MuiFormControl-root"
       >
         <div
-          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-vp6a25-MuiInputBase-root-MuiInput-root"
+          class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-zcpmuq-MuiInputBase-root-MuiInput-root"
         >
           <input
             aria-invalid="false"
@@ -244,18 +291,19 @@ exports[`Material UI with no model renders empty root object consistently 1`] = 
       >
         <div
           class="MuiBox-root css-rwzwky"
+          layout="vertical"
         >
           <div
             class="MuiFormControl-root css-1lq4zch-MuiFormControl-root"
           >
             <label
-              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-standard MuiFormLabel-colorPrimary css-aqpgxn-MuiFormLabel-root-MuiInputLabel-root"
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-standard MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-standard css-aqpgxn-MuiFormLabel-root-MuiInputLabel-root"
               data-shrink="false"
             >
               property
             </label>
             <div
-              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-vp6a25-MuiInputBase-root-MuiInput-root"
+              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-zcpmuq-MuiInputBase-root-MuiInput-root"
             >
               <input
                 aria-invalid="false"
@@ -279,7 +327,7 @@ exports[`Material UI with no model renders empty root string consistently 1`] = 
     class="MuiFormControl-root css-1lq4zch-MuiFormControl-root"
   >
     <div
-      class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-vp6a25-MuiInputBase-root-MuiInput-root"
+      class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-zcpmuq-MuiInputBase-root-MuiInput-root"
     >
       <input
         aria-invalid="false"

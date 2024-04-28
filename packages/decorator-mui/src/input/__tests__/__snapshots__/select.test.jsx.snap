@@ -6,16 +6,18 @@ exports[`renders consistently 1`] = `
     class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary  css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
   >
     <div
+      aria-controls=":r0:"
       aria-expanded="false"
       aria-haspopup="listbox"
       class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
-      role="button"
+      role="combobox"
       tabindex="0"
     >
       1
     </div>
     <input
       aria-hidden="true"
+      aria-invalid="false"
       class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
       tabindex="-1"
       value="1"
@@ -36,7 +38,7 @@ exports[`renders consistently 1`] = `
       class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
     >
       <legend
-        class="css-hdw1oc"
+        class="css-ihdtdm"
       >
         <span
           class="notranslate"

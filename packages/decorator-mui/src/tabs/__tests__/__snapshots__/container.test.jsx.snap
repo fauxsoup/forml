@@ -37,6 +37,7 @@ exports[`renders with description and no title 1`] = `
     </ul>
     <div
       class="MuiBox-root css-190bvqr"
+      tabs="1"
     >
       <div
         class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 css-1mfchec-MuiPaper-root"
@@ -116,11 +117,11 @@ exports[`renders with form options layout horizontal 1`] = `
         <div
           class="MuiListItemText-root MuiListItemText-dense MuiListItemText-multiline css-konndc-MuiListItemText-root"
         >
-          <span
+          <h6
             class="MuiTypography-root MuiTypography-subtitle2 MuiTypography-noWrap MuiListItemText-primary css-yrxn77-MuiTypography-root"
           >
             title
-          </span>
+          </h6>
           <span
             class="MuiTypography-root MuiTypography-caption MuiTypography-noWrap MuiListItemText-secondary css-tu5i67-MuiTypography-root"
           >
@@ -131,6 +132,7 @@ exports[`renders with form options layout horizontal 1`] = `
     </ul>
     <div
       class="MuiBox-root css-190bvqr"
+      tabs="1"
     >
       <div
         class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 css-tzftsp-MuiPaper-root"
@@ -210,11 +212,11 @@ exports[`renders with form options layout vertical 1`] = `
         <div
           class="MuiListItemText-root MuiListItemText-dense MuiListItemText-multiline css-konndc-MuiListItemText-root"
         >
-          <span
+          <h6
             class="MuiTypography-root MuiTypography-subtitle2 MuiTypography-noWrap MuiListItemText-primary css-yrxn77-MuiTypography-root"
           >
             title
-          </span>
+          </h6>
           <span
             class="MuiTypography-root MuiTypography-caption MuiTypography-noWrap MuiListItemText-secondary css-tu5i67-MuiTypography-root"
           >
@@ -225,6 +227,7 @@ exports[`renders with form options layout vertical 1`] = `
     </ul>
     <div
       class="MuiBox-root css-190bvqr"
+      tabs="1"
     >
       <div
         class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 css-1mfchec-MuiPaper-root"
@@ -285,6 +288,7 @@ exports[`renders with no title or description 1`] = `
   >
     <div
       class="MuiBox-root css-190bvqr"
+      tabs="1"
     >
       <div
         class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 css-1mfchec-MuiPaper-root"
@@ -364,11 +368,11 @@ exports[`renders with title and description 1`] = `
         <div
           class="MuiListItemText-root MuiListItemText-dense MuiListItemText-multiline css-konndc-MuiListItemText-root"
         >
-          <span
+          <h6
             class="MuiTypography-root MuiTypography-subtitle2 MuiTypography-noWrap MuiListItemText-primary css-yrxn77-MuiTypography-root"
           >
             title
-          </span>
+          </h6>
           <span
             class="MuiTypography-root MuiTypography-caption MuiTypography-noWrap MuiListItemText-secondary css-tu5i67-MuiTypography-root"
           >
@@ -379,6 +383,7 @@ exports[`renders with title and description 1`] = `
     </ul>
     <div
       class="MuiBox-root css-190bvqr"
+      tabs="1"
     >
       <div
         class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 css-1mfchec-MuiPaper-root"
@@ -458,16 +463,17 @@ exports[`renders with title and no description 1`] = `
         <div
           class="MuiListItemText-root MuiListItemText-dense css-tlelie-MuiListItemText-root"
         >
-          <span
+          <h6
             class="MuiTypography-root MuiTypography-subtitle2 MuiTypography-noWrap MuiListItemText-primary css-yrxn77-MuiTypography-root"
           >
             title
-          </span>
+          </h6>
         </div>
       </li>
     </ul>
     <div
       class="MuiBox-root css-190bvqr"
+      tabs="1"
     >
       <div
         class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 css-1mfchec-MuiPaper-root"

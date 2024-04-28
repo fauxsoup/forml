@@ -3,7 +3,7 @@
 exports[`renders consistently 1`] = `
 <div>
   <div
-    class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary css-1qu3b92-MuiInputBase-root-MuiInput-root"
+    class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary css-53r1ie-MuiInputBase-root-MuiInput-root"
   >
     <input
       aria-invalid="false"

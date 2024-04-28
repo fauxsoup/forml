@@ -33,13 +33,13 @@ exports[`renders with description and no title 1`] = `
           </p>
         </div>
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textInfo MuiButton-sizeMedium MuiButton-textSizeMedium  css-1hny3k0-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textInfo MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorInfo MuiButton-root MuiButton-text MuiButton-textInfo MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorInfo css-1hny3k0-MuiButtonBase-root-MuiButton-root"
           edge="end"
           tabindex="0"
           type="button"
         >
           <span
-            class="MuiButton-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+            class="MuiButton-icon MuiButton-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
           >
             <span
               aria-hidden="true"
@@ -85,11 +85,11 @@ exports[`renders with form options disableGutters false 1`] = `
         <div
           class="MuiListItemText-root MuiListItemText-dense MuiListItemText-multiline css-konndc-MuiListItemText-root"
         >
-          <span
+          <h6
             class="MuiTypography-root MuiTypography-subtitle2 MuiListItemText-primary css-1mn8new-MuiTypography-root"
           >
             title
-          </span>
+          </h6>
           <p
             class="MuiTypography-root MuiTypography-body2 MuiListItemText-secondary css-83ijpv-MuiTypography-root"
           >
@@ -97,13 +97,13 @@ exports[`renders with form options disableGutters false 1`] = `
           </p>
         </div>
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textInfo MuiButton-sizeMedium MuiButton-textSizeMedium  css-1hny3k0-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textInfo MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorInfo MuiButton-root MuiButton-text MuiButton-textInfo MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorInfo css-1hny3k0-MuiButtonBase-root-MuiButton-root"
           edge="end"
           tabindex="0"
           type="button"
         >
           <span
-            class="MuiButton-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+            class="MuiButton-icon MuiButton-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
           >
             <span
               aria-hidden="true"
@@ -149,11 +149,11 @@ exports[`renders with form options disableGutters true 1`] = `
         <div
           class="MuiListItemText-root MuiListItemText-dense MuiListItemText-multiline css-konndc-MuiListItemText-root"
         >
-          <span
+          <h6
             class="MuiTypography-root MuiTypography-subtitle2 MuiListItemText-primary css-1mn8new-MuiTypography-root"
           >
             title
-          </span>
+          </h6>
           <p
             class="MuiTypography-root MuiTypography-body2 MuiListItemText-secondary css-83ijpv-MuiTypography-root"
           >
@@ -161,13 +161,13 @@ exports[`renders with form options disableGutters true 1`] = `
           </p>
         </div>
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textInfo MuiButton-sizeMedium MuiButton-textSizeMedium  css-1hny3k0-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textInfo MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorInfo MuiButton-root MuiButton-text MuiButton-textInfo MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorInfo css-1hny3k0-MuiButtonBase-root-MuiButton-root"
           edge="end"
           tabindex="0"
           type="button"
         >
           <span
-            class="MuiButton-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+            class="MuiButton-icon MuiButton-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
           >
             <span
               aria-hidden="true"
@@ -213,11 +213,11 @@ exports[`renders with form options disablePadding false 1`] = `
         <div
           class="MuiListItemText-root MuiListItemText-dense MuiListItemText-multiline css-konndc-MuiListItemText-root"
         >
-          <span
+          <h6
             class="MuiTypography-root MuiTypography-subtitle2 MuiListItemText-primary css-1mn8new-MuiTypography-root"
           >
             title
-          </span>
+          </h6>
           <p
             class="MuiTypography-root MuiTypography-body2 MuiListItemText-secondary css-83ijpv-MuiTypography-root"
           >
@@ -225,13 +225,13 @@ exports[`renders with form options disablePadding false 1`] = `
           </p>
         </div>
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textInfo MuiButton-sizeMedium MuiButton-textSizeMedium  css-1hny3k0-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textInfo MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorInfo MuiButton-root MuiButton-text MuiButton-textInfo MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorInfo css-1hny3k0-MuiButtonBase-root-MuiButton-root"
           edge="end"
           tabindex="0"
           type="button"
         >
           <span
-            class="MuiButton-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+            class="MuiButton-icon MuiButton-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
           >
             <span
               aria-hidden="true"
@@ -277,11 +277,11 @@ exports[`renders with form options disablePadding true 1`] = `
         <div
           class="MuiListItemText-root MuiListItemText-dense MuiListItemText-multiline css-konndc-MuiListItemText-root"
         >
-          <span
+          <h6
             class="MuiTypography-root MuiTypography-subtitle2 MuiListItemText-primary css-1mn8new-MuiTypography-root"
           >
             title
-          </span>
+          </h6>
           <p
             class="MuiTypography-root MuiTypography-body2 MuiListItemText-secondary css-83ijpv-MuiTypography-root"
           >
@@ -289,13 +289,13 @@ exports[`renders with form options disablePadding true 1`] = `
           </p>
         </div>
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textInfo MuiButton-sizeMedium MuiButton-textSizeMedium  css-1hny3k0-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textInfo MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorInfo MuiButton-root MuiButton-text MuiButton-textInfo MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorInfo css-1hny3k0-MuiButtonBase-root-MuiButton-root"
           edge="end"
           tabindex="0"
           type="button"
         >
           <span
-            class="MuiButton-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+            class="MuiButton-icon MuiButton-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
           >
             <span
               aria-hidden="true"
@@ -341,11 +341,11 @@ exports[`renders with form options icon favorite 1`] = `
         <div
           class="MuiListItemText-root MuiListItemText-dense MuiListItemText-multiline css-konndc-MuiListItemText-root"
         >
-          <span
+          <h6
             class="MuiTypography-root MuiTypography-subtitle2 MuiListItemText-primary css-1mn8new-MuiTypography-root"
           >
             title
-          </span>
+          </h6>
           <p
             class="MuiTypography-root MuiTypography-body2 MuiListItemText-secondary css-83ijpv-MuiTypography-root"
           >
@@ -353,13 +353,13 @@ exports[`renders with form options icon favorite 1`] = `
           </p>
         </div>
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textInfo MuiButton-sizeMedium MuiButton-textSizeMedium  css-1hny3k0-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textInfo MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorInfo MuiButton-root MuiButton-text MuiButton-textInfo MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorInfo css-1hny3k0-MuiButtonBase-root-MuiButton-root"
           edge="end"
           tabindex="0"
           type="button"
         >
           <span
-            class="MuiButton-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+            class="MuiButton-icon MuiButton-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
           >
             <span
               aria-hidden="true"
@@ -405,11 +405,11 @@ exports[`renders with form options icon person 1`] = `
         <div
           class="MuiListItemText-root MuiListItemText-dense MuiListItemText-multiline css-konndc-MuiListItemText-root"
         >
-          <span
+          <h6
             class="MuiTypography-root MuiTypography-subtitle2 MuiListItemText-primary css-1mn8new-MuiTypography-root"
           >
             title
-          </span>
+          </h6>
           <p
             class="MuiTypography-root MuiTypography-body2 MuiListItemText-secondary css-83ijpv-MuiTypography-root"
           >
@@ -417,13 +417,13 @@ exports[`renders with form options icon person 1`] = `
           </p>
         </div>
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textInfo MuiButton-sizeMedium MuiButton-textSizeMedium  css-1hny3k0-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textInfo MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorInfo MuiButton-root MuiButton-text MuiButton-textInfo MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorInfo css-1hny3k0-MuiButtonBase-root-MuiButton-root"
           edge="end"
           tabindex="0"
           type="button"
         >
           <span
-            class="MuiButton-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+            class="MuiButton-icon MuiButton-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
           >
             <span
               aria-hidden="true"
@@ -470,13 +470,13 @@ exports[`renders with no title or description 1`] = `
           class="MuiListItemText-root MuiListItemText-dense css-tlelie-MuiListItemText-root"
         />
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textInfo MuiButton-sizeMedium MuiButton-textSizeMedium  css-1hny3k0-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textInfo MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorInfo MuiButton-root MuiButton-text MuiButton-textInfo MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorInfo css-1hny3k0-MuiButtonBase-root-MuiButton-root"
           edge="end"
           tabindex="0"
           type="button"
         >
           <span
-            class="MuiButton-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+            class="MuiButton-icon MuiButton-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
           >
             <span
               aria-hidden="true"
@@ -522,11 +522,11 @@ exports[`renders with title and description 1`] = `
         <div
           class="MuiListItemText-root MuiListItemText-dense MuiListItemText-multiline css-konndc-MuiListItemText-root"
         >
-          <span
+          <h6
             class="MuiTypography-root MuiTypography-subtitle2 MuiListItemText-primary css-1mn8new-MuiTypography-root"
           >
             title
-          </span>
+          </h6>
           <p
             class="MuiTypography-root MuiTypography-body2 MuiListItemText-secondary css-83ijpv-MuiTypography-root"
           >
@@ -534,13 +534,13 @@ exports[`renders with title and description 1`] = `
           </p>
         </div>
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textInfo MuiButton-sizeMedium MuiButton-textSizeMedium  css-1hny3k0-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textInfo MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorInfo MuiButton-root MuiButton-text MuiButton-textInfo MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorInfo css-1hny3k0-MuiButtonBase-root-MuiButton-root"
           edge="end"
           tabindex="0"
           type="button"
         >
           <span
-            class="MuiButton-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+            class="MuiButton-icon MuiButton-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
           >
             <span
               aria-hidden="true"
@@ -586,20 +586,20 @@ exports[`renders with title and no description 1`] = `
         <div
           class="MuiListItemText-root MuiListItemText-dense css-tlelie-MuiListItemText-root"
         >
-          <span
+          <h6
             class="MuiTypography-root MuiTypography-subtitle2 MuiListItemText-primary css-1mn8new-MuiTypography-root"
           >
             title
-          </span>
+          </h6>
         </div>
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textInfo MuiButton-sizeMedium MuiButton-textSizeMedium  css-1hny3k0-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textInfo MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorInfo MuiButton-root MuiButton-text MuiButton-textInfo MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorInfo css-1hny3k0-MuiButtonBase-root-MuiButton-root"
           edge="end"
           tabindex="0"
           type="button"
         >
           <span
-            class="MuiButton-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+            class="MuiButton-icon MuiButton-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
           >
             <span
               aria-hidden="true"
