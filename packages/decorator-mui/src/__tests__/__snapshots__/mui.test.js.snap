@@ -9,23 +9,23 @@ exports[`Material UI with no model renders empty root date consistently 1`] = `
       class="MuiFormControl-root MuiTextField-root css-25jgoa-MuiFormControl-root-MuiTextField-root"
     >
       <div
-        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary Mui-error MuiInputBase-formControl MuiInputBase-adornedEnd css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root"
+        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedEnd css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root"
       >
         <input
-          aria-invalid="true"
+          aria-invalid="false"
           autocomplete="off"
           class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"
           id=":r0:"
           inputmode="text"
           placeholder="MM/DD/YYYY"
           type="text"
-          value="MM/DD/YYYY"
+          value="04/28/2024"
         />
         <div
           class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-1laqsz7-MuiInputAdornment-root"
         >
           <button
-            aria-label="Choose date"
+            aria-label="Choose date, selected date is Apr 28, 2024"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeMedium css-1yq5fb3-MuiButtonBase-root-MuiIconButton-root"
             tabindex="0"
             type="button"
@@ -75,23 +75,23 @@ exports[`Material UI with no model renders empty root date-time consistently 1`]
       class="MuiFormControl-root MuiTextField-root css-25jgoa-MuiFormControl-root-MuiTextField-root"
     >
       <div
-        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary Mui-error MuiInputBase-formControl MuiInputBase-adornedEnd css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root"
+        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedEnd css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root"
       >
         <input
-          aria-invalid="true"
+          aria-invalid="false"
           autocomplete="off"
           class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"
           id=":r2:"
           inputmode="text"
           placeholder="MM/DD/YYYY hh:mm aa"
           type="text"
-          value="MM/DD/YYYY hh:mm aa"
+          value="04/28/2024 03:37 AM"
         />
         <div
           class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-1laqsz7-MuiInputAdornment-root"
         >
           <button
-            aria-label="Choose date"
+            aria-label="Choose date, selected date is Apr 28, 2024"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeMedium css-1yq5fb3-MuiButtonBase-root-MuiIconButton-root"
             tabindex="0"
             type="button"
