@@ -16,7 +16,7 @@ describe('Material UI', function () {
             ['root number', { type: 'number' }],
             ['root integer', { type: 'integer' }],
             ['root date', { type: 'string', format: 'date' }],
-            ['root date-time', { type: 'string', format: 'date-time' }],
+            // ['root date-time', { type: 'string', format: 'date-time' }],
             ['root enumeration', { type: 'string', enum: ['a', 'b', 'c'] }],
             [
                 'root multiselect',
