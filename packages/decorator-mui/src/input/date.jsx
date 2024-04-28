@@ -1,9 +1,17 @@
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import Input from '@mui/material/Input';
 import React, { useCallback, useMemo } from 'react';
+import { usePickerUtils } from './date-utils';
+
+const sx = {
+    mt: 2,
+    mb: 1,
+    '& .MuiInputBase-input': { p: 1, pr: 0 }
+};
 
 export default function Date(props) {
     const { form, value } = props;
+    const utils = usePickerUtils();
 
     const settings = useMemo(
         () => ({
@@ -34,12 +42,12 @@ export default function Date(props) {
                     ? value.format
                         ? value.format(settings.format)
                         : value.toFormat
-                        ? value.toFormat(settings.format)
-                        : value.toLocaleString()
+                            ? value.toFormat(settings.format)
+                            : value.toLocaleString()
                     : value.toLocaleString()
                 : value;
             if (props.onChange) {
-                props.onChange({ target: { value } });
+                props.onChange({ target: { value } }, value);
             }
         },
         [value, props.onChange, settings.format]
@@ -47,9 +55,10 @@ export default function Date(props) {
 
     return (
         <DatePicker
-            value={value}
+            value={utils.date(value)}
             onChange={onChange}
             renderInput={renderInput}
+            sx={sx}
             {...settings}
             {...otherProps}
         />
