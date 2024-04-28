@@ -6,10 +6,13 @@ import { getLocalizer } from '../../src/localizer';
 import * as util from '../../src/util';
 import renderer from 'react-test-renderer';
 import * as barebones from '@forml/decorator-barebones';
+import { createStore } from 'zustand';
 
 function getModelContext(schema, model = '', errors = {}) {
-    const setValue = jest.fn(util.valueSetter(model, schema));
-    return { state: { schema, model, errors }, actions: { setValue } };
+    return createStore()((set) => ({
+        schema, model, errors,
+        setValue: (key, value) => set({ model: { ...model, [key]: value } }),
+    }));
 }
 
 function getRenderingContext() {
