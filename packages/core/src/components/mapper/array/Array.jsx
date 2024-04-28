@@ -1,12 +1,16 @@
-import { useArrayKey, useDecorator, useLocalizer } from '@forml/hooks';
-import objectPath from 'objectpath';
+import debug from 'debug';
+import { useValue, createArrayKeyStore, useDecorator, useLocalizer, useArrayKeys, useActionsFor, useArrayFormActions } from '@forml/hooks';
+import { FormContext } from '@forml/context';
 import t from 'prop-types';
-import React, { forwardRef, useCallback, useMemo } from 'react';
+import React, { forwardRef, useCallback, useMemo, useRef } from 'react';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import shortid from 'shortid';
 
 import { FormType } from '../../../types';
-import Item from './Item';
+import { Item } from './Item';
+import { Range } from './Range';
+
+const log = debug('forml:core:array');
 
 /**
  * @name ArrayComponent
@@ -26,38 +30,10 @@ import Item from './Item';
  */
 
 function ArrayComponent(props) {
-    const { form, schema, onChange } = props;
+    const { form, onChange } = props;
 
-    const type = useMemo(() => objectPath.stringify(form.key), [form.key]);
-    const array = useArrayKey(form.key);
-
-    const parent = form;
-    const items = useMemo(
-        function() {
-            const arrays = [];
-            const count = array.model?.length ?? 0;
-            for (let index = 0; index < count; ++index) {
-                const key = array.keys[index];
-                arrays.push(
-                    <Item
-                        key={key}
-                        {...array}
-                        id={key}
-                        forms={parent.items}
-                        index={index}
-                        form={form}
-                        parent={parent}
-                        type={type}
-                        schema={schema}
-                        onChange={onChange}
-                        value={array.model[index]}
-                    />
-                );
-            }
-            return arrays;
-        },
-        [type, form, array, onChange, parent]
-    );
+    const array = useValue(form.key);
+    const store = useRef(createArrayKeyStore(array)).current;
 
     const dragDrop = useMemo(
         () => ('dragDrop' in form ? form.dragDrop : true),
@@ -68,15 +44,52 @@ function ArrayComponent(props) {
     );
 
     return (
-        <Component array={array} {...props}>
-            {items}
-        </Component>
+        <FormContext.Provider value={store}>
+            <Component {...props}>
+                <ArrayRanges form={form} onChange={onChange} />
+            </Component>
+        </FormContext.Provider>
     );
+}
+
+function ArrayRanges(props) {
+    const { form, onChange } = props;
+    const keys = useArrayKeys();
+    const ranges = useMemo(
+        function() {
+            const ranges = [];
+            const count = keys?.length ?? 0;
+
+            if (count > 0) {
+                const perRange = Math.max(Math.ceil(Math.sqrt(count)), 10);
+                const totalRanges = Math.ceil(count / perRange);
+
+                for (let range = 0; range < totalRanges; range++) {
+                    const start = range * perRange;
+                    const end = start + perRange;
+                    ranges.push(
+                        <Range
+                            key={range}
+                            form={form}
+                            start={start}
+                            end={end}
+                            onChange={onChange}
+                        />
+                    );
+                }
+            }
+            return ranges;
+        },
+        [keys, form, onChange]
+    );
+
+    return <>{ranges}</>;
 }
 
 const DraggableArrayContainer = forwardRef(
     function DraggableArrayContainer(props, ref) {
-        const { array } = props;
+        const { form } = props;
+        const actions = useActionsFor(form.key, useArrayFormActions());
         const droppableId = useMemo(shortid);
         const onDragEnd = useCallback(
             function onDragEnd(result) {
@@ -85,13 +98,15 @@ const DraggableArrayContainer = forwardRef(
                 } else if (result.destination.index === result.source.index) {
                     return;
                 } else {
-                    array.moveArray(
+                    const nextModel = actions.moveArray(
                         result.source.index,
                         result.destination.index
                     );
+                    const event = new Event('change', { bubbles: true });
+                    props.onChange(event, nextModel);
                 }
             },
-            [array.moveArray]
+            [actions.moveArray]
         );
         const renderDraggableItems = useCallback(
             (provided) => {
@@ -101,7 +116,6 @@ const DraggableArrayContainer = forwardRef(
                 };
                 return (
                     <NormalArrayContainer
-                        array={array}
                         {...props}
                         ref={injectRef}
                     >
@@ -124,30 +138,30 @@ const DraggableArrayContainer = forwardRef(
 );
 const NormalArrayContainer = forwardRef(
     function NormalArrayContainer(props, ref) {
-        const { form, array, onChange } = props;
+        const { form, onChange } = props;
         const { readonly: disabled, titleFun } = form;
         const deco = useDecorator();
         const localizer = useLocalizer();
+        const actions = useActionsFor(form.key, useArrayFormActions())
         const title = useMemo(
             () =>
                 localizer.getLocalizedString(
-                    titleFun?.(array.model) ?? form.title
+                    titleFun?.() ?? form.title
                 ),
-            [localizer, array.model, form, titleFun]
+            [localizer, form, titleFun]
         );
         const description = localizer.getLocalizedString(form.description);
         const { error } = props;
 
         const addItem = useCallback((event) => {
-            const nextModel = array.appendArray(form.key)
+            const nextModel = actions.appendArray();
             onChange(event, nextModel);
-        }, [array.appendArray, form.key, onChange]);
+        }, [actions.appendArray, form.key, onChange]);
 
         return (
             <deco.Arrays.Items
                 className={form.htmlClass}
                 add={addItem}
-                value={array.model}
                 title={title}
                 description={description}
                 error={error}

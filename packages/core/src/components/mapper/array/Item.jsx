@@ -2,7 +2,7 @@ import debug from 'debug';
 import React, { forwardRef, useMemo } from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 
-import { useDecorator, useLocalizer } from '@forml/hooks';
+import { useDecorator, useLocalizer, useArrayActions } from '@forml/hooks';
 import { ARRAY_PLACEHOLDER } from '../../../constants';
 import { clone, traverseForm } from '../../../util';
 import { SchemaField } from '../../schema-field';
@@ -58,7 +58,7 @@ export const Item = forwardRef(function Item(props, ref) {
 export default Item;
 
 const NormalArrayItem = forwardRef(function NormalArrayItem(props, ref) {
-    const { form, array, value, index, dragHandleProps, draggableProps } =
+    const { form, array, value, index, onChange, dragHandleProps, draggableProps } =
         props;
     const { readonly: disabled } = form;
     const deco = useDecorator();
@@ -73,13 +73,31 @@ const NormalArrayItem = forwardRef(function NormalArrayItem(props, ref) {
         return localizer.getLocalizedString(title);
     }, [form, value, localizer]);
 
-    const actions = useMemo(() => {
+    const arrayActions = useArrayActions(form.key);
+    const actions = useMemo(function() {
         return {
-            destroy: () => props.removeArray(index),
-            moveUp: () => props.moveArrayUp(index),
-            moveDown: () => props.moveArrayDown(index),
+            destroy: function() {
+                const nextModel = arrayActions.removeArray(index);
+                onChange(new Event('change', { bubbles: true }), nextModel);
+                return nextModel;
+            },
+            moveUp: function() {
+                const nextModel = arrayActions.moveArray(index, index - 1)
+                onChange(new Event('change', { bubbles: true }), nextModel);
+                return nextModel;
+            },
+            moveDown: function() {
+                const nextModel = arrayActions.moveArray(index, index + 1)
+                onChange(new Event('change', { bubbles: true }), nextModel);
+                return nextModel;
+            },
         };
-    }, [props.removeArray, props.moveArrayUp, props.moveArrayDown, index]);
+    }, [
+        arrayActions,
+        form.key,
+        index,
+        onChange
+    ]);
 
     return (
         <deco.Arrays.Item
