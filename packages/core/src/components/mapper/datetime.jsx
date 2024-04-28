@@ -1,5 +1,5 @@
 import t from 'prop-types';
-import React, { useCallback } from 'react';
+import React, { useCallback, useMemo } from 'react';
 
 import { useDecorator, useLocalizer } from '@forml/hooks';
 import { FormType } from '../../types';
@@ -11,9 +11,10 @@ export default function DateTime(props) {
     const localizer = useLocalizer();
     const deco = useDecorator();
 
-    let { value, form, error } = props;
+    let { form, error } = props;
     let { title, description, placeholder } = form;
     const { readonly: disabled } = form;
+    const value = useMemo(() => props.value || new Date().toISOString(), [props.value])
     const onChange = useCallback(
         function onChange(e) {
             props.onChangeSet(e, e.target.value);
