@@ -11,6 +11,15 @@ const theme = createTheme({});
 
 describe('Material UI', function () {
     describe('with no model', function () {
+        beforeEach(function () {
+            jest.mock('@mui/utils', () => ({
+                __esModule: true,
+                ...jest.requireActual('@mui/utils'),
+                useId: () => {
+                    return '1';
+                },
+            }));
+        });
         const tests = [
             ['root string', { type: 'string' }],
             ['root number', { type: 'number' }],

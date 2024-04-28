@@ -13,16 +13,16 @@ export default function Select({
     children,
     multiple,
 }) {
-    const selectProps = useMemo(
-        () => ({
-            error: !!error,
-            onChange,
-            value: value ?? '',
-            placeholder,
-            disabled,
-            multiple,
-        }),
-        [error, onChange, value, placeholder, disabled, multiple]
-    );
-    return <MuiSelect {...selectProps}>{children}</MuiSelect>;
+    return (
+        <MuiSelect
+            error={!!error}
+            onChange={onChange}
+            value={value ?? ''}
+            placeholder={placeholder}
+            disabled={disabled}
+            multiple={multiple}
+        >
+            {children}
+        </MuiSelect>
+    )
 }
