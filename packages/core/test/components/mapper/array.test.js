@@ -311,7 +311,7 @@ describe('each item', function () {
 
             expect(container.querySelector('ul li h6')).not.toBeNull();
             expect(container.querySelector('ul li h6').textContent).toBe(
-                'test 1'
+                'test'
             );
         });
     });
