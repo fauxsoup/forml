@@ -21,7 +21,7 @@ export function modelSetArray(
 
     // combine into a new model and apply schema fixes
 
-    const nextModel = [...prefix, assertType(schema, model), ...suffix];
+    const nextModel = prefix.concat([assertType(schema, model)]).concat(suffix);
     return assertType(targetSchema, nextModel);
 }
 export function modelSetObject(
@@ -56,7 +56,7 @@ export function modelDrop(targetSchema, targetModel, targetKey) {
         }
 
         // combine into a new model and apply schema fixes
-        return assertType(targetSchema, [...prefix, ...suffix]);
+        return assertType(targetSchema, prefix.concat(suffix));
     } else if (preferredType === 'object') {
         const { [targetKey]: _removed, ...nextModel } = targetModel;
         return assertType(targetSchema, nextModel);
