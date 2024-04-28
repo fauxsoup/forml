@@ -50,8 +50,8 @@ const Panel = forwardRef(function Panel(props, ref) {
  * @component Tabs
  */
 export default function Tabs(props) {
+    const { form, onChange } = props;
     const [value, setValue] = useState(0);
-    const { form } = props;
     const deco = useDecorator();
     const localizer = useLocalizer();
 
@@ -70,7 +70,7 @@ export default function Tabs(props) {
                 />
             );
             panels.push(
-                <Panel parent={form} index={index} activeIndex={value} />
+                <Panel parent={form} index={index} activeIndex={value} onChange={onChange} />
             );
         }
         return [tabs, panels];
