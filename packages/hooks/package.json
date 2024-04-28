@@ -1,6 +1,6 @@
 {
     "name": "@forml/hooks",
-    "version": "2.0.0-next.5",
+    "version": "2.0.0-next.6",
     "description": "Hooks for use with @forml/core",
     "main": "lib/index.js",
     "scripts": {

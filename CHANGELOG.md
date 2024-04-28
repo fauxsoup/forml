@@ -1,3 +1,15 @@
+# 2.0.0-next.6 (2024-04-28)
+
+
+### Bug Fixes
+
+* **core:** coerce initial date/time values bc20857
+* **decorator-mui:** disable empty datetime test e23c934
+* **decorator-mui:** missing date/time helper module 8f5c322
+* **decorator-mui:** workaround nondeterministic ID 54a0058
+* **decorator-mui:** wrap date/time input values eacc5c8
+* **hooks:** coerce tuple keys to numbers ff08267
+
 # 2.0.0-next.5 (2024-04-28)
 
 

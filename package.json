@@ -1,6 +1,6 @@
 {
     "name": "forml",
-    "version": "2.0.0-next.5",
+    "version": "2.0.0-next.6",
     "description": "Small, fast, and powerful JSON-schema form generator for React.",
     "keywords": [
         "forml",

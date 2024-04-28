@@ -1,6 +1,6 @@
 {
     "name": "@forml/context",
-    "version": "2.0.0-next.5",
+    "version": "2.0.0-next.6",
     "description": "React context for @forml",
     "main": "lib/index.js",
     "scripts": {

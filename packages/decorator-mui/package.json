@@ -1,6 +1,6 @@
 {
     "name": "@forml/decorator-mui",
-    "version": "2.0.0-next.5",
+    "version": "2.0.0-next.6",
     "description": "A forml decorator using MaterialUI",
     "main": "lib/index.js",
     "scripts": {
@@ -34,7 +34,7 @@
         "@babel/plugin-proposal-object-rest-spread": "^7.20.2",
         "@babel/preset-env": "^7.24.4",
         "@babel/preset-react": "^7.24.1",
-        "@forml/core": "^2.0.0-next.5",
+        "@forml/core": "^2.0.0-next.6",
         "@date-io/moment": "^3.0.0",
         "@testing-library/jest-dom": "^6.4.2",
         "@testing-library/react": "^15.0.5",
@@ -50,7 +50,7 @@
         "@emotion/react": "^11.11.4",
         "@emotion/styled": "^11.11.5",
         "@forml/context": "^2.0.0-next.1",
-        "@forml/hooks": "^2.0.0-next.5",
+        "@forml/hooks": "^2.0.0-next.6",
         "@mui/icons-material": "^5.15.15",
         "@mui/lab": "^5.0.0-alpha.170",
         "@mui/material": "^5.15.15",
