@@ -4,20 +4,20 @@ import { SchemaForm, util, constants } from '../../../src';
 import React from 'react';
 import * as barebones from '@forml/decorator-barebones';
 
-describe('items container', function () {
+describe('items container', function() {
     let schema;
     let form;
     let model;
     let decorator;
 
-    beforeEach(function () {
+    beforeEach(function() {
         schema = { type: 'array', items: { type: 'number' } };
         form = ['*'];
         model = [];
         decorator = barebones;
     });
 
-    test('is rendered', function () {
+    test('is rendered', function() {
         const props = {
             schema,
             form,
@@ -33,15 +33,15 @@ describe('items container', function () {
         expect(container.querySelector('.array ul')).toBeEmptyDOMElement();
     });
 
-    describe('with an add button', function () {
-        test('which renders', function () {
+    describe('with an add button', function() {
+        test('which renders', function() {
             const props = { schema, form, model, decorator };
             const { container } = render(<SchemaForm {...props} />);
 
             const button = container.querySelector('button');
             expect(button).not.toBeNull();
         });
-        test('which adds an item to the model', function () {
+        test('which adds an item to the model', function() {
             const onChange = jest.fn((event, newModel) => {
                 model = newModel;
             });
@@ -54,7 +54,7 @@ describe('items container', function () {
         });
     });
 
-    test('cannot be mutated if disabled', async function () {
+    test('cannot be mutated if disabled', async function() {
         let onChange = jest.fn((event, nextModel) => (model = nextModel));
         let schema = {
             type: 'array',
@@ -135,7 +135,7 @@ function mockElementSpacing({ container }) {
     });
 }
 
-describe('each item', function () {
+describe('each item', function() {
     let schema = null;
     let form = null;
     let model = null;
@@ -145,7 +145,7 @@ describe('each item', function () {
     let decorator = null;
     let props = null;
 
-    beforeEach(function () {
+    beforeEach(function() {
         schema = { type: 'array', items: { type: 'number' } };
         form = ['*'];
         model = [1];
@@ -160,14 +160,14 @@ describe('each item', function () {
         mockGetComputedSpacing();
     });
 
-    test('is rendered', function () {
+    test('is rendered', function() {
         const { container } = render(<SchemaForm {...props} />);
         expect(container.querySelector('.array ul li')).not.toBeNull();
     });
 
     // jsdom can't effectively mock this well enough to make it work; skip until
     // we find a workaround
-    test.skip('can be dragged into a new position', async function () {
+    test.skip('can be dragged into a new position', async function() {
         const onChange = jest.fn();
         model = [1, 2, 3, 4];
         const utils = render(<SchemaForm {...{ ...props, model, onChange }} />);
@@ -187,8 +187,8 @@ describe('each item', function () {
         expect(onChange).toHaveBeenCalled();
     });
 
-    describe('in readonly mode', function () {
-        test.skip('propagates readonly', function () {
+    describe('in readonly mode', function() {
+        test.skip('propagates readonly', function() {
             model = [1];
             form = [
                 {
@@ -208,7 +208,7 @@ describe('each item', function () {
             );
             expect(container.querySelector('input').disabled).toBe(true);
         });
-        test('can be overrideden by explicit setting', function () {
+        test('can be overrideden by explicit setting', function() {
             model = [1];
             form = [
                 {
@@ -230,8 +230,8 @@ describe('each item', function () {
         });
     });
 
-    describe('has controls', function () {
-        test('to move up', function () {
+    describe('has controls', function() {
+        test('to move up', function() {
             model = [1, 2];
             const { container } = render(
                 <SchemaForm {...{ schema, form, model, onChange, decorator }} />
@@ -252,7 +252,7 @@ describe('each item', function () {
             expect(model).toMatchObject([2, 1]);
         });
 
-        test('to move down', function () {
+        test('to move down', function() {
             model = [1, 2];
             const { container } = render(
                 <SchemaForm {...{ schema, form, model, onChange, decorator }} />
@@ -273,7 +273,7 @@ describe('each item', function () {
             expect(model).toMatchObject([2, 1]);
         });
 
-        test('to be destroyed', function () {
+        test('to be destroyed', function() {
             model = [1, 2];
             const { container } = render(
                 <SchemaForm {...{ schema, form, model, onChange, decorator }} />
@@ -291,15 +291,15 @@ describe('each item', function () {
             expect(model).toMatchObject([2]);
         });
     });
-    describe('can specify titleFun', function () {
-        test('which overrides form.title in children', function () {
+    describe('can specify titleFun', function() {
+        test('which overrides form.title in children', function() {
             model = [1, 2];
             form = [
                 {
                     key: [],
                     type: 'array',
                     titleFun(value) {
-                        return `test ${value}`;
+                        return `test`;
                     },
                     items: ['[]'],
                 },
