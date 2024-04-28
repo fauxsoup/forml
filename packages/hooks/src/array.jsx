@@ -1,59 +1,66 @@
-import { useReducer, useEffect, useMemo } from 'react';
-import { createAction, createReducer } from './reducer';
+import { useContext, useMemo } from 'react';
 import { useModelFor, useActionsFor } from './model';
+import { FormContext } from '@forml/context';
+import { createStore, useStore } from 'zustand';
+import { useShallow } from 'zustand/react/shallow';
 import shortid from 'shortid';
 
-const reset = createAction('reset');
-const appendArray = createAction('append', (item) => ({ item }));
-const removeArray = createAction('remove', (index) => ({ index }));
-const moveArray = createAction('move', (from, to) => ({ from, to }));
+export function createArrayKeyStore(items) {
+    return createStore()(function() {
+        return {
+            keys: new Array(items?.length ?? 0).fill(null).map(() => shortid()),
+        };
+    });
+}
+export function useArrayFormActions() {
+    const store = useContext(FormContext);
 
-const reduceItems = createReducer((builder) => {
-    builder.addCase(reset, (_state, _action) => {
-        return [];
-    });
-    builder.addCase(appendArray, (state, action) => {
-        const { item } = action.payload;
-        return [...state, item];
-    });
-    builder.addCase(removeArray, (state, action) => {
-        const { index } = action.payload;
-        return [...state.slice(0, index), ...state.slice(index + 1)];
-    });
-    builder.addCase(moveArray, (state, action) => {
-        const { from, to } = action.payload;
-        const nextModel = [...state];
-        const [removed] = nextModel.splice(from, 1);
-        nextModel.splice(to, 0, removed);
-        return nextModel;
-    });
-});
-
-function useArrayForms(array) {
-    const initialState = useMemo(() => {
-        if (array.model) {
-            return array.model.map(shortid);
-        } else {
-            return [];
-        }
-    }, []);
-    const [keys, dispatch] = useReducer(reduceItems, initialState);
-    const actions = useMemo(
-        () => ({
-            appendArray: () => dispatch(appendArray(shortid())),
-            removeArray: (index) => dispatch(removeArray(index)),
-            moveArray: (from, to) => dispatch(moveArray(from, to)),
-            moveArrayUp: (index) => dispatch(moveArray(index, index - 1)),
-            moveArrayDown: (index) => dispatch(moveArray(index, index + 1)),
-        }),
-        [dispatch]
-    );
-    return { keys, actions };
+    return useMemo(() => {
+        return {
+            reset: () => store.setState([]),
+            appendArray: (key, item) => store.setState(function(state) {
+                const keys = Array.from(state.keys);
+                keys.push(shortid());
+                return { keys };
+            }),
+            removeArray: (key, index) => store.setState(function(state) {
+                const before = state.keys.slice(0, index);
+                const after = state.keys.slice(index + 1);
+                return { keys: before.concat(after) };
+            }),
+            moveArray: (key, from, to) => store.setState(function(state) {
+                const nextModel = Array.from(state.keys);
+                const [removed] = nextModel.splice(from, 1);
+                nextModel.splice(to, 0, removed);
+                return { keys: nextModel };
+            }),
+        };
+    }, [store]);
 }
 
-export function useArrayKey(key) {
+export function useArrayKeyStore() {
+    return useContext(FormContext);
+}
+export function useArrayKeys() {
+    return useStore(useArrayKeyStore(), useShallow(state => state.keys))
+}
+export function useArrayKeyFor(index) {
+    return useStore(useArrayKeyStore(), useShallow(state => state.keys[index]))
+}
+
+export function useArrayKeyRange(start, end) {
+    return useStore(useArrayKeyStore(), useShallow(state => state.keys.slice(start, end)));
+}
+
+export function useArray(key) {
     const array = useModelFor(key);
-    const reducer = useArrayForms(array);
-    const actions = useActionsFor(key, reducer.actions);
-    return { ...array, ...actions, keys: reducer.keys };
+    const actions = useArrayActions(key);
+    return { ...array, ...actions };
+}
+
+export function useArrayActions(key) {
+    return useActionsFor(key, useArrayFormActions());
+}
+
+export function useArrayRange(key, start, end) {
 }
