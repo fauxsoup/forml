@@ -36,6 +36,7 @@ export function SchemaRender(props) {
             }),
         [merged, props.onChange]
     );
+
     return <>{children}</>
 }
 

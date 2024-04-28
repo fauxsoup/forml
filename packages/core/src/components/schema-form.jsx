@@ -38,8 +38,8 @@ export function SchemaForm(props) {
         [props.localizer]
     );
     const renderingContext = useMemo(() => ({ mapper, decorator, localizer }), [mapper, decorator, localizer]);
-
     const modelContext = useRef(createModelStore(schema, model)).current;
+
     return (
         <RenderingContext.Provider value={renderingContext}>
             <ModelContext.Provider value={modelContext}>
