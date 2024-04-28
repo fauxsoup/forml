@@ -1,3 +1,11 @@
+# 2.0.0-next.5 (2024-04-28)
+
+
+### Bug Fixes
+
+* **core:** custom onChange for dynamic ce754e5
+* **core:** pass onChange to tab panel af2df12
+
 # 2.0.0-next.4 (2024-04-28)
 
 
