@@ -30,8 +30,8 @@
     "homepage": "https://www.forml.dev",
     "peerDependencies": {
         "@forml/hooks": ">=1.0.0",
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0"
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1"
     },
     "devDependencies": {
         "@babel/cli": "^7.24.1",
