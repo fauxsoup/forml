@@ -1,15 +1,12 @@
-import debug from 'debug';
-import React, { useMemo } from 'react';
+import React, { useCallback, useMemo } from 'react';
+import { useActionsFor } from '@forml/hooks';
 
 import { useRenderingContext } from '@forml/hooks';
 
-const log = debug('forml:core:dynamic');
-
 export default function makeDynamic(SchemaForm) {
     function GeneratedDynamic(props) {
-        const { form: parent, value } = props;
-        const form = parent.generate(value);
-        return <BaseDynamic {...props} parent={parent} form={form} />;
+        const { form: parent } = props;
+        return <BaseDynamic {...props} parent={parent} form={parent.generate} />;
     }
     function StaticDynamic(props) {
         const { form: parent } = props;
@@ -17,18 +14,28 @@ export default function makeDynamic(SchemaForm) {
         return <BaseDynamic {...props} parent={parent} form={form} />;
     }
     function BaseDynamic(props) {
-        const { form, parent, value } = props;
+        const { form, parent, schema, value } = props;
+        const actions = useActionsFor(parent.key);
         const ctx = useRenderingContext();
         const { decorator, mapper, localizer } = ctx;
 
+        const onChange = useCallback(
+            (event, value) => {
+                const nextModel = actions.setValue(value);
+                props.onChange(event, nextModel);
+            },
+            [props.onChange, actions]
+        );
+
         return (
             <SchemaForm
-                {...props}
+                schema={schema}
                 decorator={decorator}
                 mapper={mapper}
                 localizer={localizer}
                 form={form}
                 model={value}
+                onChange={onChange}
                 parent={parent}
             />
         );
