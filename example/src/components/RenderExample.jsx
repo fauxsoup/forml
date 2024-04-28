@@ -17,17 +17,15 @@ export default function RenderExample(props) {
 
     const key = useMemo(() => shortid(), [decorator]);
 
-    const formProps = {
-        schema,
-        form,
-        model,
-        decorator: decorators[decorator],
-        localizer,
-        onChange,
-        mapper,
-    };
-
-    let child = <SchemaForm {...formProps} />;
+    let child = <SchemaForm
+        schema={schema}
+        form={form}
+        model={model}
+        decorator={decorators[decorator]}
+        localizer={localizer}
+        onChange={onChange}
+        mapper={mapper}
+    />;
     if (decorator === 'pdf') {
         if (wrapInDocument) {
             child = (
