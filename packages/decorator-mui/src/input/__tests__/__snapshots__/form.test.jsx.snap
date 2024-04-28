@@ -4,7 +4,6 @@ exports[`renders consistently 1`] = `
 <div>
   <div
     class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary css-1qu3b92-MuiInputBase-root-MuiInput-root"
-    form="[object Object]"
   >
     <input
       aria-invalid="false"

@@ -140,7 +140,6 @@ exports[`Material UI with no model renders empty root integer consistently 1`] =
   >
     <div
       class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-vp6a25-MuiInputBase-root-MuiInput-root"
-      form="[object Object]"
     >
       <input
         aria-invalid="false"
@@ -204,7 +203,6 @@ exports[`Material UI with no model renders empty root number consistently 1`] = 
   >
     <div
       class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-vp6a25-MuiInputBase-root-MuiInput-root"
-      form="[object Object]"
     >
       <input
         aria-invalid="false"
@@ -231,7 +229,6 @@ exports[`Material UI with no model renders empty root object consistently 1`] = 
       >
         <div
           class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-vp6a25-MuiInputBase-root-MuiInput-root"
-          form="[object Object]"
         >
           <input
             aria-invalid="false"
@@ -259,7 +256,6 @@ exports[`Material UI with no model renders empty root object consistently 1`] = 
             </label>
             <div
               class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-vp6a25-MuiInputBase-root-MuiInput-root"
-              form="[object Object]"
             >
               <input
                 aria-invalid="false"
@@ -284,7 +280,6 @@ exports[`Material UI with no model renders empty root string consistently 1`] = 
   >
     <div
       class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-vp6a25-MuiInputBase-root-MuiInput-root"
-      form="[object Object]"
     >
       <input
         aria-invalid="false"
