@@ -167,6 +167,7 @@ export function getNextSchema(schema, key) {
     const preferredType = getPreferredType(schema.type);
     if (preferredType === 'array') {
         if (Array.isArray(schema.items)) {
+            key = Number(key);
             if (Number.isInteger(key) && key < schema.items.length) {
                 return schema.items[key];
             } else {
@@ -191,6 +192,7 @@ export function getNext(schema, key, value) {
     const preferredType = getPreferredType(schema.type);
     if (preferredType === 'array') {
         if (Array.isArray(schema.items)) {
+            key = Number(key);
             if (Number.isInteger(key) && key < schema.items.length) {
                 const nextSchema = schema.items[key];
                 const nextValue = assertType(nextSchema, value[key]);
