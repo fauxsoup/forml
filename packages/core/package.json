@@ -1,6 +1,6 @@
 {
     "name": "@forml/core",
-    "version": "2.0.0-next.1",
+    "version": "2.0.0-next.4",
     "description": "A JSON Schema-based form generator powered by React",
     "main": "lib/index.js",
     "scripts": {
@@ -34,8 +34,8 @@
         "react-dom": "^18.2.0"
     },
     "dependencies": {
-        "@forml/context": "^2.0.0-next.1",
-        "@forml/hooks": "^2.0.0-next.1",
+        "@forml/context": "^2.0.0-next.4",
+        "@forml/hooks": "^2.0.0-next.4",
         "ajv": "^8.12.0",
         "deepmerge": "^4.3.1",
         "objectpath": "^2.0.0",
@@ -49,7 +49,7 @@
         "@babel/plugin-proposal-object-rest-spread": "^7.20.2",
         "@babel/preset-env": "^7.23.3",
         "@babel/preset-react": "^7.23.3",
-        "@forml/decorator-barebones": "^2.0.0-next.1"
+        "@forml/decorator-barebones": "^2.0.0-next.4"
     },
     "gitHead": "070e7bf9829f1b21c2d7100f935fdc624d43fdef"
 }

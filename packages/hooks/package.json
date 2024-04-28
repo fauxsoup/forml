@@ -1,6 +1,6 @@
 {
     "name": "@forml/hooks",
-    "version": "2.0.0-next.1",
+    "version": "2.0.0-next.4",
     "description": "Hooks for use with @forml/core",
     "main": "lib/index.js",
     "scripts": {
@@ -47,7 +47,7 @@
         "react-test-renderer": "^18.2.0"
     },
     "dependencies": {
-        "@forml/context": "^2.0.0-next.1",
+        "@forml/context": "^2.0.0-next.4",
         "reselect": "^4.1.8",
         "zustand": "^4.5.2"
     },

@@ -1,3 +1,20 @@
+# 2.0.0-next.4 (2024-04-28)
+
+
+### Bug Fixes
+
+* **core:** custom validator for FormTypes 8fca4d2
+* **core:** event propagation and passing 9f0c11a
+* **core:** fix incorrect titleFun 02d2235
+* **core:** fix proptypes for forms b9d871a
+* **core:** make some zustand adaptations to arrays 05bbf5d
+* **core:** remove titleFun model passing in tests ef4df28
+* **core:** zustand store mock in tests 77c2228
+* **decorator-mui:** no more React.memo 5aa7597
+* **example:** boolean flag for email check 82305e6
+* **example:** temporarily disable pdf fonts 5f58186
+* **example:** update generator to use new hooks 064d397
+
 # 2.0.0-next.3 (2023-12-01)
 
 
