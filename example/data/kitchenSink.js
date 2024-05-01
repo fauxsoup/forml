@@ -146,6 +146,13 @@ module.exports = {
                         },
                     ],
                 },
+                {
+                    type: 'fieldset',
+                    title: 'Singular Field',
+                    description:
+                        'A single field to ensure heights are calculated correctly',
+                    items: ['checkbox'],
+                },
             ],
         },
     ],

@@ -157,7 +157,6 @@ export function form() {
                         disableMargin: true,
                         key: 'nested',
                         wrap: false,
-                        dragDrop: false,
                         items: [
                             {
                                 type: 'fieldset',

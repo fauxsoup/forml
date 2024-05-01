@@ -5,9 +5,21 @@ module.exports.schema = {
     type: 'object',
     title: 'Nested Tabs',
     properties: {
-        foo: { type: 'string' },
-        bar: { type: 'number' },
-        baz: { type: 'boolean' },
+        foo: {
+            type: 'string',
+            title: 'Foo',
+            description: 'A string, a simple string',
+        },
+        bar: {
+            type: 'number',
+            title: 'Bar',
+            description: 'A drop of golden num',
+        },
+        baz: {
+            type: 'boolean',
+            title: 'Baz',
+            description: 'The truth, or not',
+        },
     },
 };
 
