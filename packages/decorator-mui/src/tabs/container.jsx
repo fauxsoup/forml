@@ -22,16 +22,15 @@ const Root = styled(Paper)(({ form }) => [
     },
     form.disableMargin && { m: 0 },
 ]);
-const Content = ({ form, minHeight, ...props }) => (
+const Content = ({ form, orientation, ...props }) => (
     <Box
         {...props}
         sx={useMemo(
             () => ({
                 position: 'relative',
-                display: 'flex',
+                display: orientation === 'horizontal' ? 'grid' : 'flex',
                 flexGrow: 1,
                 flexDirection: 'column',
-                minHeight,
                 m: form.disableMargin ? 0 : undefined,
                 p: form.disablePadding ? 0 : undefined,
             }),
@@ -43,6 +42,7 @@ const Tabs = styled(Paper)(({ theme, form }) => [
     {
         display: 'flex',
         flexGrow: 1,
+        gridArea: '1 / -1',
         top: 0,
         left: 0,
         display: 'flex',
@@ -64,15 +64,16 @@ const Tabs = styled(Paper)(({ theme, form }) => [
         borderRightColor: theme.palette.divider,
     },
     form?.collapse &&
-        form.layout === 'horizontal' && {
-            position: 'absolute',
-            overflow: 'hidden',
-            maxWidth: theme.spacing(7),
-            transition: 'all 0.3s',
-            ':hover': {
-                maxWidth: '100%',
-            },
+    form.layout === 'horizontal' && {
+        position: 'relative',
+        overflow: 'hidden',
+        maxWidth: theme.spacing(7),
+        width: 'fit-content',
+        transition: 'all 0.3s',
+        ':hover': {
+            maxWidth: '100%',
         },
+    },
 ]);
 const TabList = styled(List)(({ form }) => [
     {
@@ -94,6 +95,7 @@ const Panels = styled(Box)(({ form, theme }) => [
         overflow: 'hidden',
         position: 'relative',
         zIndex: 5,
+        gridArea: '1 / -1',
     },
     form.layout === 'horizontal' && {
         flexDirection: 'column',
@@ -103,9 +105,9 @@ const Panels = styled(Box)(({ form, theme }) => [
         margin: theme.spacing(1),
     },
     form.layout === 'horizontal' &&
-        form.collapse && {
-            marginLeft: theme.spacing(7),
-        },
+    form.collapse && {
+        marginLeft: theme.spacing(7),
+    },
 ]);
 const TitleList = styled(List)(() => ({
     display: 'flex',
@@ -126,19 +128,10 @@ const TitleListItem = styled(ListItem)(({ theme, form }) => [
 export default function Container(props) {
     const { title, description, form, collapse } = props;
     const ref = useRef(null);
-    const [minHeight, setMinHeight] = useState(0);
 
     const icon = form.icon ?? 'view_carousel';
     const showTitle = form.showTitle ?? true;
-
-    useEffect(
-        function () {
-            if (ref.current) {
-                setMinHeight(ref.current.scrollHeight);
-            }
-        },
-        [ref.current]
-    );
+    const orientation = form.layout ?? 'vertical';
 
     return (
         <Root form={form}>
@@ -177,7 +170,7 @@ export default function Container(props) {
                 collapse={collapse}
                 tabs={props.tabs.length}
                 form={form}
-                minHeight={minHeight}
+                orientation={orientation}
             >
                 <Tabs
                     collapse={collapse}
