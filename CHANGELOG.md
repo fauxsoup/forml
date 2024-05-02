@@ -1,3 +1,10 @@
+# 2.0.0-next.7 (2024-05-02)
+
+
+### Bug Fixes
+
+* **decorator-mui:** better size handling for tabs 4b96566
+
 # 2.0.0-next.6 (2024-04-28)
 
 
