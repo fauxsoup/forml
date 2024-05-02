@@ -19,13 +19,13 @@ exports[`Material UI with no model renders empty root date consistently 1`] = `
           inputmode="text"
           placeholder="MM/DD/YYYY"
           type="text"
-          value="04/28/2024"
+          value="01/01/2020"
         />
         <div
           class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-1laqsz7-MuiInputAdornment-root"
         >
           <button
-            aria-label="Choose date, selected date is Apr 28, 2024"
+            aria-label="Choose date, selected date is Jan 1, 2020"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeMedium css-1yq5fb3-MuiButtonBase-root-MuiIconButton-root"
             tabindex="0"
             type="button"

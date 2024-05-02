@@ -24,7 +24,7 @@ describe('Material UI', function () {
             ['root string', { type: 'string' }],
             ['root number', { type: 'number' }],
             ['root integer', { type: 'integer' }],
-            ['root date', { type: 'string', format: 'date' }],
+            ['root date', { type: 'string', format: 'date' }, '2020-01-01'],
             // ['root date-time', { type: 'string', format: 'date-time' }],
             ['root enumeration', { type: 'string', enum: ['a', 'b', 'c'] }],
             [
@@ -60,9 +60,9 @@ describe('Material UI', function () {
         const form = ['*'];
         const decorator = mui;
 
-        for (let [name, schema] of tests) {
+        for (let [name, schema, maybeModel] of tests) {
             test(`renders empty ${name} consistently`, function () {
-                const model = util.defaultForSchema(schema);
+                const model = maybeModel ?? util.defaultForSchema(schema);
                 const { container } = render(
                     <ThemeProvider theme={theme}>
                         <LocalizationProvider dateAdapter={AdapterMoment}>

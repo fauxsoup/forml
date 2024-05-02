@@ -36,11 +36,11 @@ exports[`renders with description and no title 1`] = `
       </li>
     </ul>
     <div
-      class="MuiBox-root css-190bvqr"
+      class="MuiBox-root css-p4v2qm"
       tabs="1"
     >
       <div
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 css-1mfchec-MuiPaper-root"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 css-1uj6erk-MuiPaper-root"
         form="[object Object]"
       >
         <ul
@@ -74,7 +74,7 @@ exports[`renders with description and no title 1`] = `
         </ul>
       </div>
       <div
-        class="MuiBox-root css-mbccmm"
+        class="MuiBox-root css-mj0ya4"
         form="[object Object]"
       >
         <div
@@ -131,11 +131,11 @@ exports[`renders with form options layout horizontal 1`] = `
       </li>
     </ul>
     <div
-      class="MuiBox-root css-190bvqr"
+      class="MuiBox-root css-1c8t2r7"
       tabs="1"
     >
       <div
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 css-tzftsp-MuiPaper-root"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 css-16nkhj0-MuiPaper-root"
         form="[object Object]"
       >
         <ul
@@ -169,7 +169,7 @@ exports[`renders with form options layout horizontal 1`] = `
         </ul>
       </div>
       <div
-        class="MuiBox-root css-169sr6u"
+        class="MuiBox-root css-1tqg69w"
         form="[object Object]"
       >
         <div
@@ -226,11 +226,11 @@ exports[`renders with form options layout vertical 1`] = `
       </li>
     </ul>
     <div
-      class="MuiBox-root css-190bvqr"
+      class="MuiBox-root css-p4v2qm"
       tabs="1"
     >
       <div
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 css-1mfchec-MuiPaper-root"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 css-1uj6erk-MuiPaper-root"
         form="[object Object]"
       >
         <ul
@@ -264,7 +264,7 @@ exports[`renders with form options layout vertical 1`] = `
         </ul>
       </div>
       <div
-        class="MuiBox-root css-mbccmm"
+        class="MuiBox-root css-mj0ya4"
         form="[object Object]"
       >
         <div
@@ -287,11 +287,11 @@ exports[`renders with no title or description 1`] = `
     form="[object Object]"
   >
     <div
-      class="MuiBox-root css-190bvqr"
+      class="MuiBox-root css-p4v2qm"
       tabs="1"
     >
       <div
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 css-1mfchec-MuiPaper-root"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 css-1uj6erk-MuiPaper-root"
         form="[object Object]"
       >
         <ul
@@ -325,7 +325,7 @@ exports[`renders with no title or description 1`] = `
         </ul>
       </div>
       <div
-        class="MuiBox-root css-mbccmm"
+        class="MuiBox-root css-mj0ya4"
         form="[object Object]"
       >
         <div
@@ -382,11 +382,11 @@ exports[`renders with title and description 1`] = `
       </li>
     </ul>
     <div
-      class="MuiBox-root css-190bvqr"
+      class="MuiBox-root css-p4v2qm"
       tabs="1"
     >
       <div
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 css-1mfchec-MuiPaper-root"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 css-1uj6erk-MuiPaper-root"
         form="[object Object]"
       >
         <ul
@@ -420,7 +420,7 @@ exports[`renders with title and description 1`] = `
         </ul>
       </div>
       <div
-        class="MuiBox-root css-mbccmm"
+        class="MuiBox-root css-mj0ya4"
         form="[object Object]"
       >
         <div
@@ -472,11 +472,11 @@ exports[`renders with title and no description 1`] = `
       </li>
     </ul>
     <div
-      class="MuiBox-root css-190bvqr"
+      class="MuiBox-root css-p4v2qm"
       tabs="1"
     >
       <div
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 css-1mfchec-MuiPaper-root"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 css-1uj6erk-MuiPaper-root"
         form="[object Object]"
       >
         <ul
@@ -510,7 +510,7 @@ exports[`renders with title and no description 1`] = `
         </ul>
       </div>
       <div
-        class="MuiBox-root css-mbccmm"
+        class="MuiBox-root css-mj0ya4"
         form="[object Object]"
       >
         <div
