@@ -11,10 +11,10 @@ export function Range(props) {
     const { start, end, form, onChange } = props;
     const keys = useArrayKeyRange(start, end);
     const type = useMemo(() => ObjectPath.stringify(form.key), [form.key]);
-    return <>
-        {useMemo(() =>
-            keys.map(
-                (key, offset) => <Item
+    const items = useMemo(() =>
+        keys.map(
+            (key, offset) => (
+                <Item
                     key={key}
                     id={key}
                     onChange={onChange}
@@ -24,24 +24,11 @@ export function Range(props) {
                     forms={form.items}
                     type={type}
                 />
-            ),
-            [keys, onChange, form]
-        )}
+            )
+        ),
+        [keys, onChange, form]
+    );
+    return <>
+        {items}
     </>;
 }
-
-/**
- *  <Item
- *      key={key}
- *      {...array}
- *      id={key}
- *      forms={parent.items}
- *      index={index}
- *      form={form}
- *      parent={parent}
- *      type={type}
- *      schema={schema}
- *      onChange={onChange}
- *      value={array.model[index]}
- *  />
- */
