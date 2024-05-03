@@ -40,7 +40,7 @@ export const schema = {
             type: 'string',
             enum: ['home', 'work', 'mobile', 'fax', 'etc'],
         },
-        nested: {
+        references: {
             type: 'array',
             title: 'References',
             description: 'A list of references who can support your comment',
@@ -155,17 +155,20 @@ export function form() {
                         icon: 'contacts',
                         disableGutters: true,
                         disableMargin: true,
-                        key: 'nested',
+                        key: 'references',
                         wrap: false,
                         items: [
                             {
                                 type: 'fieldset',
-                                key: 'nested[]',
+                                key: 'references[]',
                                 layout: 'vertical',
                                 elevation: 0,
                                 wrap: false,
                                 icon: 'person',
-                                items: ['nested[].first', 'nested[].last'],
+                                items: [
+                                    'references[].first',
+                                    'references[].last',
+                                ],
                             },
                         ],
                     },
@@ -175,3 +178,7 @@ export function form() {
         [spamOption]
     );
 }
+
+export const model = {
+    references: [{ first: 'John', last: 'Doe' }],
+};
