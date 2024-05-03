@@ -14,14 +14,13 @@ const Input = styled(BaseInput)(({ theme, fullWidth, ...props }) => ({
 }));
 
 function Plain(props) {
-    const { form, rowMax, ...forwardProps } = props;
+    const { form, value, ...forwardProps } = props;
     const fullWidth = useMemo(
         () => ('fullWidth' in form ? form.fullWidth : undefined),
         [form]
     );
-    const rows = rowMax;
 
-    return <Input {...forwardProps} fullWidth={fullWidth} />;
+    return <Input {...forwardProps} value={value ?? ''} fullWidth={fullWidth} />;
 }
 
 /**
