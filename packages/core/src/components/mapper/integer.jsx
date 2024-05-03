@@ -6,6 +6,7 @@ import { useDecorator, useLocalizer } from '@forml/hooks';
 import { FormType } from '../../types';
 
 const valueExceptions = ['', '-'];
+const valueReplacements = { '0-': '-' };
 
 /**
  * @component Integer
@@ -26,8 +27,11 @@ export default function Integer(props) {
         function onChange(e) {
             let value = e.target.value;
 
-            if (valueExceptions.includes(value)) {
-                props.onChange(e, value);
+            if (value in valueReplacements) {
+                props.onChangeSet(e, valueReplacements[value]);
+                return;
+            } else if (valueExceptions.includes(value)) {
+                props.onChangeSet(e, value);
                 return;
             }
 

@@ -29,7 +29,7 @@ export default function Number(props) {
             let value = e.target.value;
 
             if (valueExceptions.includes(value)) {
-                props.onChange(e, value);
+                props.onChangeSet(e, value);
                 return;
             }
 
