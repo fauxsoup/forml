@@ -1,3 +1,11 @@
+# 2.0.0-next.8 (2024-05-03)
+
+
+### Bug Fixes
+
+* **core:** onChange -> onChangeSet on substitution ced2492
+* **decorator-mui:** empty string default for input 343aa96
+
 # 2.0.0-next.7 (2024-05-02)
 
 
