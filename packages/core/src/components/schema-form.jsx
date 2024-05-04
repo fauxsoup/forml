@@ -1,7 +1,6 @@
 /**
  * @namespace forml.SchemaForm
  */
-import debug from 'debug';
 import PropTypes from 'prop-types';
 import React, { useCallback, useEffect, useMemo, useRef } from 'react';
 
@@ -13,8 +12,6 @@ import { SchemaRender } from './schema-render';
 
 import { decoratorShape, defaultDecorator, getDecorator } from '../decorators';
 import { defaultMapper, getMapper, mapperShape } from './mapper';
-
-const log = debug('forml:core:schema-form');
 
 /**
  * @component SchemaForm
@@ -41,8 +38,6 @@ export function SchemaForm(props) {
     );
     const renderingContext = useMemo(() => ({ mapper, decorator, localizer }), [mapper, decorator, localizer]);
     const modelContext = useRef(createModelStore(schema, model)).current;
-
-    log('SchemaForm(schema: %o, model: %o)', schema, model);
 
     return (
         <RenderingContext.Provider value={renderingContext}>
