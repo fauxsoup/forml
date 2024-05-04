@@ -18,6 +18,15 @@ export function useMapper() {
     return mapper;
 }
 
+export function useGenerator(generator) {
+    if (typeof generator === 'function') {
+        // The generator is a hook; use it
+        return generator();
+    } else {
+        return generator;
+    }
+}
+
 export function useMappedField(type) {
     const mapper = useMapper();
     return mapper[type];
