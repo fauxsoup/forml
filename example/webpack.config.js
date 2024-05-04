@@ -48,6 +48,11 @@ module.exports = {
         rules: [
             {
                 test: /\.m?jsx?$/,
+                enforce: 'pre',
+                use: ['source-map-loader'],
+            },
+            {
+                test: /\.m?jsx?$/,
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',
@@ -67,9 +72,8 @@ module.exports = {
                     },
                 },
             },
-            //        { test: /\.js$/, enforce: 'pre', use: ['source-map-loader'] },
-            { test: /\.css$/, use: ['style-loader', 'css-loader'] },
-            { test: /\.(eot|svg|ttf|woff|woff2)$/, use: ['file-loader'] },
+            { test: /\.css$/, type: 'asset/resource' },
+            { test: /\.(eot|svg|ttf|woff|woff2)$/, type: 'asset/resource' },
         ],
     },
     plugins: [],
