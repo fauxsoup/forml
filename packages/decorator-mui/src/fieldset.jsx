@@ -17,18 +17,24 @@ const Root = styled(List)(({ theme, disablePadding }) => [
         flexGrow: 1,
     },
 ]);
-const Content = styled(Box)(({ theme, disablePadding, layout, alignItems }) => [
+const Content = styled(
+    Box,
     {
-        display: 'flex',
-        flexDirection: layout === 'vertical' ? 'column' : 'row',
-        padding: theme.spacing(1),
-        gap: theme.spacing(1),
-        alignItems: alignItems,
-    },
-    disablePadding && {
-        padding: 0,
-    },
-]);
+        shouldForwardProp: (prop) =>
+            !['disablePadding', 'layout', 'alignItems'].includes(prop)
+    })(
+        ({ theme, disablePadding, layout, alignItems }) => [
+            {
+                display: 'flex',
+                flexDirection: layout === 'vertical' ? 'column' : 'row',
+                padding: theme.spacing(1),
+                gap: theme.spacing(1),
+                alignItems: alignItems,
+            },
+            disablePadding && {
+                padding: 0,
+            },
+        ]);
 const Surface = styled(Paper)(({ theme, disableMargin }) => [
     {
         flex: 1,
