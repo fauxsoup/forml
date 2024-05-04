@@ -12,7 +12,7 @@ export default function SelectDecorator(props) {
         }),
         [decorators]
     );
-    const form = useMemo(() => ['*'], []);
+    const form = useMemo(() => [{ key: [], title: 'Decorator' }], []);
     const onChange = useCallback(
         function onChange(event, nextModel) {
             props.onChange(nextModel);

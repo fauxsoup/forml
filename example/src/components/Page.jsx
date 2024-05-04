@@ -1,8 +1,10 @@
 import { util } from '@forml/core';
 import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
+import Stack from '@mui/material/Stack';
+import Card from '@mui/material/Card'; import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
+import Divider from '@mui/material/Divider';
+import Grid from '@mui/material/Grid';
 import { styled } from '@mui/material/styles';
 import React, { useCallback, useMemo, useRef, useState } from 'react';
 import useEditable from '../hooks/useEditable';
@@ -12,32 +14,55 @@ import RenderExample from './RenderExample';
 import SelectDecorator from './SelectDecorator';
 import SelectExample from './SelectExample';
 
-const Root = styled(Box)(({ theme }) => ({
-    display: 'flex',
-    flexDirection: 'row',
-    flexGrow: 1,
-    overflow: 'hidden',
-    maxHeight: 'fill-available',
-}));
-const ExampleCard = styled(Card)(({ theme }) => ({
-    display: 'flex',
-    flex: '1 0 auto',
-    flexDirection: 'column',
-    maxHeight: 'fill-available',
-}));
-const ExampleCardContent = styled(CardContent)(({ theme }) => ({
+
+function Title(props) {
+    if (props.title) {
+        return <Divider><Typography variant="caption">{props.title}</Typography></Divider>
+    } else {
+        return null;
+    }
+}
+
+const miniBoxInnerStyle = {
     display: 'flex',
     flexDirection: 'column',
-    flex: '1 0 0',
-    maxHeight: 'fill-available',
-    overflow: 'auto',
-    borderBottom: `1px solid ${theme.palette?.divider}`,
-}));
-const ExampleCardFooter = styled(CardContent)(({ theme }) => ({
     flex: '0 0 fit-content',
-    maxHeight: '30%',
-}));
-const ManagerCard = styled(Card)({ flex: '0 0 300px' });
+    padding: 1,
+    gap: 1
+};
+const miniBoxOuterStyle = {
+    display: 'flex',
+    flexDirection: 'column',
+    flex: '0 0 fit-content',
+}
+function MiniBox(props) {
+    return (
+        <Box sx={miniBoxOuterStyle}>
+            <Title title={props.title} />
+            <Box sx={miniBoxInnerStyle}>{props.children}</Box>
+        </Box>
+    );
+}
+
+const maxiBoxOuterStyle = {
+    display: 'flex',
+    flexDirection: 'column',
+    flex: '1 1 100%',
+}
+const maxiBoxInnerStyle = {
+    flex: '1 0 100%',
+    overflowY: 'auto',
+    p: 1,
+    g: 1
+};
+function MaxiBox(props) {
+    return (
+        <Box sx={maxiBoxOuterStyle}>
+            <Title title={props.title} />
+            <Box sx={maxiBoxInnerStyle}>{props.children}</Box>
+        </Box>
+    );
+}
 
 export default function Page() {
     const pdfRef = useRef();
@@ -75,6 +100,21 @@ export default function Page() {
         ]
     );
 
+    const [finalForm, setFinalForm] = useState(null);
+    const forwardForm = useMemo(() => {
+        if (typeof form.value === 'function') {
+            return (...args) => {
+                const final = form.value(...args);
+                setFinalForm(final);
+                return final;
+            }
+        } else {
+            setFinalForm(form.value);
+            return form.value;
+        }
+    }, [form.value])
+    const finalFormJSON = useMemo(() => JSON.stringify(finalForm, null, 2), [finalForm]);
+
     const onModelChange = useCallback(
         function onModelChange(event, ...args) {
             model.setValue(args[0]);
@@ -91,13 +131,71 @@ export default function Page() {
     );
 
     return (
-        <Root>
-            <ExampleCard key="primary-viewport">
-                <ExampleCardContent key="example" ref={pdfRef}>
+        <Stack sx={{ "flex": "1 0 auto", maxHeight: 'fill-available', overflow: 'hidden' }} direction="row">
+            <Box flex="1 1 auto" display="grid" gridTemplateColumns="1fr" gridTemplateRows="auto 30%" gap={1} key="primary-viewport">
+                <Box key="example" display="flex" flexDirection="column" overflow="hidden">
+                    <Divider key="header"><Typography key="title" variant="caption">Rendered Example</Typography></Divider>
+                    <Box overflow="auto" maxHeight="fill-available" key="editor">
+                        <RenderExample
+                            key={`render-${decorator}-${selected}`}
+                            schema={schema.value}
+                            form={forwardForm}
+                            model={model.value}
+                            onChange={onModelChange}
+                            wrapInDocument={selected != './kitchenSink.js'}
+                            mapper={mapper}
+                            localizer={localizer}
+                            decorator={decorator}
+                        />
+                    </Box>
+                </Box>
+                <Box key="model" display="flex" flexDirection="column" overflow="hidden">
+                    <Divider><Typography key="title" variant="caption">Model</Typography></Divider>
+                    <Box overflow="auto" maxHeight="fill-available" key="editor">
+                        <Editor key="editor" value={model.json} />
+                    </Box>
+                </Box>
+            </Box>
+            <Divider orientation="vertical" />
+            <Stack sx={{ flex: '0 0 20%', display: 'flex', flexDirection: 'column' }} key="secondary-viewport">
+                <MiniBox key="configure-example" title="Configure Example">
+                    <MiniBox key="select-example">
+                        <SelectExample selected={selected} onChange={onChange} />
+                    </MiniBox>
+                    <MiniBox key="select-decorator">
+                        <SelectDecorator
+                            decorator={decorator}
+                            onChange={setDecorator}
+                        />
+                    </MiniBox>
+                </MiniBox>
+                <MaxiBox key="schema" title="Schema">
+                    <Editor
+                        key="editor"
+                        value={schema.json}
+                        onChange={onSchemaChange}
+                    />
+                </MaxiBox>
+                <MaxiBox key="form" title="Form">
+                    <Editor
+                        key="editor"
+                        value={finalFormJSON}
+                        onChange={onFormChange}
+                    />
+                </MaxiBox>
+            </Stack>
+        </Stack>
+    );
+}
+
+/*
+            <Stack sx={{ "flex": "1 0 auto", maxHeight: 'fill-available', overflow: 'hidden' }} key="primary-viewport">
+                <Divider><Typography key="title" variant="caption">Rendered Example</Typography></Divider>
+                <Box sx={{ flex: "1 1 auto", height: 'fill-available', maxHeight: 'fill-available' }} key="example" ref={pdfRef}>
                     <RenderExample
                         key={`render-${decorator}-${selected}`}
                         schema={schema.value}
-                        form={form.value}
+                        form={forwardForm}
                         model={model.value}
                         onChange={onModelChange}
                         wrapInDocument={selected != './kitchenSink.js'}
@@ -105,45 +203,10 @@ export default function Page() {
                         localizer={localizer}
                         decorator={decorator}
                     />
-                </ExampleCardContent>
-                <ExampleCardFooter key="model">
-                    <Typography key="title" variant="h6">
-                        Model
-                    </Typography>
+                </Box>
+                <Divider><Typography key="title" variant="caption">Model</Typography></Divider>
+                <Box sx={{ flex: '0 0 auto', height: 'fill-available', maxHeight: '15rem', overflowY: 'auto' }} key="model">
                     <Editor key="editor" value={model.json} />
-                </ExampleCardFooter>
-            </ExampleCard>
-            <ManagerCard key="secondary-viewport">
-                <CardContent key="select-example">
-                    <SelectExample selected={selected} onChange={onChange} />
-                </CardContent>
-                <CardContent key="select-decorator">
-                    <SelectDecorator
-                        decorator={decorator}
-                        onChange={setDecorator}
-                    />
-                </CardContent>
-                <CardContent key="schema">
-                    <Typography key="title" variant="h6">
-                        Schema
-                    </Typography>
-                    <Editor
-                        key="editor"
-                        value={schema.json}
-                        onChange={onSchemaChange}
-                    />
-                </CardContent>
-                <CardContent key="form">
-                    <Typography key="title" variant="h6">
-                        Form
-                    </Typography>
-                    <Editor
-                        key="editor"
-                        value={form.json}
-                        onChange={onFormChange}
-                    />
-                </CardContent>
-            </ManagerCard>
-        </Root>
-    );
-}
+                </Box>
+            </Stack>
+*/

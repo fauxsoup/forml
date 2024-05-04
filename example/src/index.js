@@ -4,7 +4,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 import debug from 'debug';
 import { createRoot } from 'react-dom/client';
-import ReactPDF from '@react-pdf/renderer';
+// import ReactPDF from '@react-pdf/renderer';
 import Page from './components/Page';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import createTheme from '@mui/material/styles/createTheme';
@@ -12,7 +12,11 @@ import React from 'react';
 
 import 'material-icons/iconfont/material-icons.css';
 
-const theme = createTheme();
+const theme = createTheme({
+    palette: {
+        mode: 'dark',
+    },
+});
 
 // ReactPDF.Font.register({
 //     family: 'Material Icons',
