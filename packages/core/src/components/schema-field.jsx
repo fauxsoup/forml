@@ -85,7 +85,7 @@ function WrapperField(props) {
     const Field = useMappedField(form.type);
 
     if (!Field) {
-        log('WrapperField.fail(key: %o, form: %o)', form.key, form);
+        log('WrapperField.fail(type: %o, form: %o)', form.type, form);
         return null;
     }
 
@@ -106,8 +106,4 @@ export function SchemaField(props) {
 SchemaField.propTypes = {
     schema: PropTypes.object,
     form: FormType,
-};
-SchemaField.defaultProps = {
-    schema: { type: 'null' },
-    form: {},
 };
