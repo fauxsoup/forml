@@ -11,39 +11,39 @@ import React, { useMemo } from 'react';
 /**
  * @component
  */
-const Root = styled(List)(({ theme, disablePadding }) => [
-    {
-        flexDirection: 'column',
-        flexGrow: 1,
-    },
-]);
-const Content = styled(
-    Box,
-    {
-        shouldForwardProp: (prop) =>
-            !['disablePadding', 'layout', 'alignItems'].includes(prop)
-    })(
-        ({ theme, disablePadding, layout, alignItems }) => [
-            {
-                display: 'flex',
-                flexDirection: layout === 'vertical' ? 'column' : 'row',
-                padding: theme.spacing(1),
-                gap: theme.spacing(1),
-                alignItems: alignItems,
-            },
-            disablePadding && {
-                padding: 0,
-            },
-        ]);
-const Surface = styled(Paper)(({ theme, disableMargin }) => [
-    {
-        flex: 1,
-        flexDirection: 'inherit',
-        m: 1,
-    },
-    disableMargin && { m: 0 },
-]);
-const Title = styled(ListItem)(({ theme }) => ({}));
+function Root(props) {
+    return <List flexDirection="column" flexGrow={1} {...props} />
+}
+
+function Content(props) {
+    const { disablePadding, layout, alignItems, ...forwardProps } = props;
+    const gridLayout = useMemo(() => {
+        if (layout === 'horizontal') {
+            return { gridAutoColumns: '1fr', gridAutoFlow: 'column' };
+        } else {
+            return { gridAutoRows: '1fr', gridAutoFlow: 'row' };
+        }
+    }, [layout])
+    return (
+        <Box
+            display="grid"
+            p={disablePadding ? 0 : 1}
+            g={1}
+            alignItems={alignItems}
+            {...gridLayout}
+            {...forwardProps}
+        />
+    );
+}
+
+function Surface(props) {
+    const { disableMargin, ...forwardProps } = props;
+    return <Paper margin={disableMargin ? 0 : 1} {...forwardProps} />;
+}
+
+function Title(props) {
+    return <ListItem {...props} />;
+}
 
 export default function FieldSet(props) {
     const { title, description, form } = props;
