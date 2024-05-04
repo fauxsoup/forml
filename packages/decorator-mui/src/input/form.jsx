@@ -20,7 +20,7 @@ function Plain(props) {
         [form]
     );
 
-    return <Input {...forwardProps} value={value ?? ''} fullWidth={fullWidth} />;
+    return <Input {...forwardProps} maxRows={props.maxRows ?? props.rowMax} value={value ?? ''} fullWidth={fullWidth} />;
 }
 
 /**
