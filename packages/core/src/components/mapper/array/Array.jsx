@@ -90,7 +90,7 @@ const DraggableArrayContainer = forwardRef(
     function DraggableArrayContainer(props, ref) {
         const { form } = props;
         const actions = useActionsFor(form.key, useArrayFormActions());
-        const droppableId = useMemo(shortid);
+        const droppableId = useMemo(shortid, []);
         const onDragEnd = useCallback(
             function onDragEnd(result) {
                 if (!result.destination) {
