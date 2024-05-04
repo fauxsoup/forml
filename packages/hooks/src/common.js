@@ -85,8 +85,8 @@ export function modelSet(targetSchema, targetModel, targetKey, schema, model) {
     }
 }
 
-export function getTypeOf(schema, value) {
-    if (value === undefined) return getPreferredType(schema.type);
+export function getTypeOf(value) {
+    if (value === undefined) return 'null';
     else if (value === null) return 'null';
     else if (Array.isArray(value)) return 'array';
     else return typeof value;
@@ -226,7 +226,7 @@ export function assertType(schema, value) {
     const allowed = new Set(
         Array.isArray(schema.type) ? schema.type : [schema.type]
     );
-    const type = getTypeOf(schema, value);
+    const type = getTypeOf(value);
 
     if (allowed.has('null') && !value) {
         return null;
