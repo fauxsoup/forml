@@ -22,7 +22,6 @@ export function SchemaForm(props) {
     const {
         model,
         schema,
-        form,
     } = props;
     const mapper = useMemo(
         () => getMapper(props.mapper),
@@ -36,6 +35,8 @@ export function SchemaForm(props) {
         () => getLocalizer(props.localizer),
         [props.localizer]
     );
+    const form = useMemo(() => props.form ?? ['*'], [props.form]);
+
     const renderingContext = useMemo(() => ({ mapper, decorator, localizer }), [mapper, decorator, localizer]);
     const modelContext = useRef(createModelStore(schema, model)).current;
 
@@ -69,13 +70,4 @@ SchemaForm.propTypes = {
     mapper: mapperShape,
     /** The tree of decorative components used by control components to build forms */
     decorator: decoratorShape,
-};
-
-SchemaForm.defaultProps = {
-    model: null,
-    schema: { type: 'null' },
-    form: ['*'],
-    decorator: defaultDecorator(),
-    localizer: defaultLocalizer(),
-    mapper: defaultMapper(),
 };

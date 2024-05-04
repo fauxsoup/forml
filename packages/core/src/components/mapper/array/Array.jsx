@@ -188,7 +188,3 @@ ArrayComponent.propTypes = {
     /** The current value of the array */
     value: t.array,
 };
-
-ArrayComponent.defaultProps = {
-    value: [],
-};
