@@ -61,6 +61,3 @@ export function useArray(key) {
 export function useArrayActions(key) {
     return useActionsFor(key, useArrayFormActions());
 }
-
-export function useArrayRange(key, start, end) {
-}
