@@ -1,4 +1,5 @@
 import debug from 'debug';
+import ObjectPath from 'objectpath';
 import PropTypes from 'prop-types';
 import React, { useCallback, useMemo } from 'react';
 
@@ -13,11 +14,26 @@ function FieldRenderer(props) {
 }
 
 function ValueField(props) {
-    const { form, parent, onChange } = props;
+    const { form, parent, onChange, prefix } = props;
+    const key = useMemo(() => {
+        if (prefix) {
+            if (typeof prefix === 'string') {
+                prefix = ObjectPath.parse(prefix);
+            }
+            if (typeof form.key === 'string') {
+                const key = ObjectPath.parse(form.key);
+                return [...prefix, ...key];
+            } else {
+                return [...prefix, ...form.key];
+            }
+        } else {
+            return form.key;
+        }
+    }, [form.key, prefix]);
 
     const Field = useMappedField(form.type);
-    const field = useModelFor(form.key);
-    const actions = useActionsFor(form.key);
+    const field = useModelFor(key);
+    const actions = useActionsFor(key);
 
     const onChangeSet = useCallback(
         (event, value) => {
@@ -43,7 +59,7 @@ function ValueField(props) {
     if (!Field) {
         log(
             'ValueField.fail(key: %o, form: %o) : !Field : form : %o',
-            form.key,
+            key,
             form
         );
         return null;

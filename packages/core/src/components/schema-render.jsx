@@ -19,13 +19,14 @@ export function SchemaRender(props) {
                 return (
                     <SchemaField
                         key={index}
+                        prefix={props.prefix}
                         schema={schema}
                         form={form}
                         onChange={props.onChange}
                     />
                 );
             }),
-        [merged, props.onChange]
+        [merged, props.prefix, props.onChange]
     );
 
     return <>{children}</>
