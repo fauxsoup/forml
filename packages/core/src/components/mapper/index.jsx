@@ -7,7 +7,7 @@ import Array from './array';
 import Checkbox from './checkbox';
 import Date from './date';
 import DateTime from './datetime';
-import makeDynamic from './dynamic';
+import Dynamic from './dynamic';
 import FieldSet from './fieldset';
 import File from './file';
 import Help from './help';
@@ -20,13 +20,13 @@ import Tabs from './tabs';
 import Text from './text';
 import TextArea from './textarea';
 
-export function defaultMapper(SchemaForm = null) {
+export function defaultMapper() {
     return {
         array: Array,
         checkbox: Checkbox,
         date: Date,
         datetime: DateTime,
-        dynamic: makeDynamic(SchemaForm),
+        dynamic: Dynamic,
         fieldset: FieldSet,
         help: Help,
         integer: Integer,
@@ -85,6 +85,6 @@ export const mapperShape = t.shape({
     tuple: t.elementType,
 });
 
-export function getMapper(mapper = {}, SchemaForm = null) {
-    return { ...defaultMapper(SchemaForm), ...mapper };
+export function getMapper(mapper = {}) {
+    return { ...defaultMapper, ...mapper };
 }
