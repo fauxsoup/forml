@@ -1,7 +1,7 @@
-import React, { forwardRef, useMemo } from 'react';
+import React, { forwardRef, useCallback, useMemo } from 'react';
 import { Draggable } from 'react-beautiful-dnd';
-
 import { useDecorator, useLocalizer, useArrayActions } from '@forml/hooks';
+
 import { ARRAY_PLACEHOLDER } from '../../../constants';
 import { clone, traverseForm } from '../../../util';
 import { SchemaField } from '../../schema-field';
@@ -13,6 +13,9 @@ export const Item = forwardRef(function Item(props, ref) {
         [parent]
     );
 
+    const onChange = useCallback((event, nextModel) => {
+        props.onChange(event, nextModel);
+    }, [props.onChange, index])
     const Component = useMemo(() => {
         if (dragDrop) {
             return DraggableArrayItem;
@@ -22,8 +25,8 @@ export const Item = forwardRef(function Item(props, ref) {
     }, [dragDrop]);
 
     const fields = useMemo(
-        () =>
-            forms.map((template, subFormIndex) => {
+        () => {
+            return forms.map((template, subFormIndex) => {
                 if (!template) return;
                 const form = copyWithIndex(template, index);
 
@@ -38,11 +41,12 @@ export const Item = forwardRef(function Item(props, ref) {
                         form={form}
                         schema={form.schema}
                         parent={parent}
-                        onChange={props.onChange}
+                        onChange={onChange}
                     />
                 );
-            }),
-        [forms, index, parent.titleFun, disabled]
+            });
+        },
+        [forms, index, parent, onChange, disabled]
     );
 
     return (
@@ -55,20 +59,19 @@ export const Item = forwardRef(function Item(props, ref) {
 export default Item;
 
 const NormalArrayItem = forwardRef(function NormalArrayItem(props, ref) {
-    const { form, array, value, index, onChange, dragHandleProps, draggableProps } =
+    const { form, array, index, onChange, dragHandleProps, draggableProps } =
         props;
     const { readonly: disabled } = form;
     const deco = useDecorator();
     const localizer = useLocalizer();
 
     const title = useMemo(() => {
-        let title = form.title;
         if (form.titleFun) {
-            title = form.titleFun(value);
+            return (value) => localizer.getLocalizedString(form.titleFun(value));
+        } else if (form.title) {
+            return localizer.getLocalizedString(form.title)
         }
-
-        return localizer.getLocalizedString(title);
-    }, [form, value, localizer]);
+    }, [form, localizer]);
 
     const arrayActions = useArrayActions(form.key);
     const actions = useMemo(function() {
