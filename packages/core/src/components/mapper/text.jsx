@@ -2,7 +2,7 @@ import t from 'prop-types';
 import React, { useCallback, useMemo } from 'react';
 import ObjectPath from 'objectpath';
 
-import { useDecorator, useLocalizedString } from '@forml/hooks';
+import { useDecorator, useLocalizer } from '@forml/hooks';
 import { FormType } from '../../types';
 
 /**
@@ -13,6 +13,7 @@ export default function Text(props) {
     const { otherProps } = props;
 
     const deco = useDecorator();
+    const { getLocalizedString } = useLocalizer();
 
     const { title, description, placeholder } = form;
     const { readonly: disabled } = form;
@@ -22,6 +23,13 @@ export default function Text(props) {
             props.onChangeSet(e, e.target.value);
         },
         [props.onChangeSet]
+    );
+    const errorOrDescription = useMemo(
+        () =>
+            error ?? description
+                ? getLocalizedString(error ?? description)
+                : null,
+        [error, description, getLocalizedString]
     );
 
     return (
@@ -34,7 +42,7 @@ export default function Text(props) {
                     value={value}
                     error={error}
                 >
-                    {useLocalizedString(title)}
+                    {getLocalizedString(title)}
                 </deco.Label>
             )}
             <deco.Input.Form
@@ -45,17 +53,17 @@ export default function Text(props) {
                 error={error}
                 disabled={disabled}
                 id={id}
-                placeholder={useLocalizedString(placeholder)}
+                placeholder={getLocalizedString(placeholder)}
                 {...otherProps}
             />
-            {(error || description) && (
+            {errorOrDescription && (
                 <deco.Input.Description
                     key="description"
                     form={form}
                     value={value}
                     error={!!error}
                 >
-                    {useLocalizedString(description)}
+                    {errorOrDescription}
                 </deco.Input.Description>
             )}
         </deco.Input.Group>
