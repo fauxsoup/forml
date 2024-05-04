@@ -31,9 +31,8 @@ const miniBoxInnerStyle = {
     gap: 1
 };
 const miniBoxOuterStyle = {
-    display: 'flex',
-    flexDirection: 'column',
-    flex: '0 0 fit-content',
+    display: 'grid',
+    gridAutoRows: 'min-content',
 }
 function MiniBox(props) {
     return (
@@ -45,9 +44,9 @@ function MiniBox(props) {
 }
 
 const maxiBoxOuterStyle = {
-    display: 'flex',
-    flexDirection: 'column',
-    flex: '1 1 100%',
+    display: 'grid',
+    gridAutoRows: 'min-content auto',
+    minHeight: '0',
 }
 const maxiBoxInnerStyle = {
     flex: '1 0 100%',
@@ -131,11 +130,11 @@ export default function Page() {
     );
 
     return (
-        <Stack sx={{ "flex": "1 0 auto", maxHeight: 'fill-available', overflow: 'hidden' }} direction="row">
-            <Box flex="1 1 auto" display="grid" gridTemplateColumns="1fr" gridTemplateRows="auto 30%" gap={1} key="primary-viewport">
-                <Box key="example" display="flex" flexDirection="column" overflow="hidden">
+        <Box display="grid" gridAutoFlow="column" gridAutoColumns="4fr min-content 1fr" height="fill-available" maxHeight="fill-available" overflow="hidden">
+            <Box display="grid" gridAutoFlow="row" height="fill-available" gridAutoRows="2fr 1fr" gap={1} overflow="hidden" key="primary-viewport">
+                <Box key="example" display="flex" flexDirection="column" overflow="hidden" minHeight={0}>
                     <Divider key="header"><Typography key="title" variant="caption">Rendered Example</Typography></Divider>
-                    <Box overflow="auto" maxHeight="fill-available" key="editor">
+                    <Box overflow="auto" maxHeight="fill-available" p={1} key="editor">
                         <RenderExample
                             key={`render-${decorator}-${selected}`}
                             schema={schema.value}
@@ -157,7 +156,7 @@ export default function Page() {
                 </Box>
             </Box>
             <Divider orientation="vertical" />
-            <Stack sx={{ flex: '0 0 20%', display: 'flex', flexDirection: 'column' }} key="secondary-viewport">
+            <Box display="grid" gridAutoFlow="row" gridAutoRows="min-content auto auto" overflow="hidden" key="secondary-viewport">
                 <MiniBox key="configure-example" title="Configure Example">
                     <MiniBox key="select-example">
                         <SelectExample selected={selected} onChange={onChange} />
@@ -183,8 +182,8 @@ export default function Page() {
                         onChange={onFormChange}
                     />
                 </MaxiBox>
-            </Stack>
-        </Stack>
+            </Box>
+        </Box>
     );
 }
 
