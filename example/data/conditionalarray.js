@@ -1,3 +1,5 @@
+const { useMemo } = require('react');
+const { useValue } = require('@forml/hooks');
 module.exports = {
     schema: {
         type: 'object',
@@ -25,22 +27,25 @@ module.exports = {
             },
         },
     },
-    form: function (props, model) {
-        return [
-            {
-                key: 'notes',
-                type: 'array',
-                items: [
-                    {
-                        type: 'dynamic',
-                        key: 'notes[]',
-                        generate(model) {
+    form: [
+        {
+            key: 'notes',
+            type: 'array',
+            items: [
+                {
+                    type: 'dynamic',
+                    key: 'notes[]',
+                    generate() {
+                        const additionalInfoRequired = useValue(
+                            'additionalInfoRequired'
+                        );
+                        return useMemo(() => {
                             const forms = [
                                 'basicInfo',
                                 'additionalInfoRequired',
                             ];
 
-                            if (model.additionalInfoRequired) {
+                            if (additionalInfoRequired) {
                                 forms.push({
                                     key: 'additionalInfo',
                                     type: 'textarea',
@@ -54,10 +59,10 @@ module.exports = {
                             });
 
                             return forms;
-                        },
+                        }, [additionalInfoRequired]);
                     },
-                ],
-            },
-        ];
-    },
+                },
+            ],
+        },
+    ],
 };

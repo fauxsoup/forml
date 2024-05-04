@@ -76,7 +76,7 @@ export const mapper = {
 };
 
 export function form() {
-    const email = useValue(['email']);
+    const email = useValue('email');
     const spamOption = useMemo(
         () =>
             !!email
