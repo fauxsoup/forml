@@ -14,7 +14,7 @@ import {
 } from './common';
 
 // validation temporarily disabled
-// import AJV from 'ajv';
+import AJV from 'ajv';
 
 /**
  * Hook to use the entire forml context
@@ -22,15 +22,19 @@ import {
  */
 
 export function createModelStore(schema, model) {
-    // const ajv = useMemo(() => new AJV({ allErrors: true, strict: false }), []);
-
+    const ajv = useMemo(() => new AJV({ allErrors: true, strict: false }), []);
     return createStore()(function() {
         return {
             schema,
             model: assertType(schema, model),
+            ajv,
         }
     });
 };
+
+export function useAJV() {
+    return useStore(useModelContext(), useShallow(state => state.ajv));
+}
 
 export function useActions() {
     const store = useModelContext();
@@ -229,6 +233,28 @@ export function useValue(key = []) {
 
     return useModel(modelSelector);
 }
+
+const validators = new WeakMap();
+export function useValidatorFor(schema) {
+    const ajv = useAJV();
+    return useMemo(() => {
+        if (validators.has(schema)) {
+            return validators.get(schema);
+        } else {
+            const validator = ajv.compile(schema);
+            const validate = (data) => {
+                if (validator(data) === false) {
+                    return ajv.errorsText(validator.errors);
+                } else {
+                    return null;
+                }
+            }
+            validators.set(schema, validate);
+            return validate;
+        }
+    }, [schema])
+}
+
 export function useModelFor(key) {
     const path = useMemo(() => objectPath.stringify(key), [key]);
     const keySelector = useCallback(
@@ -248,12 +274,21 @@ export function useModelFor(key) {
         [path]
     );
 
-    //const validate = useMemo(
-    //    () => model.ajv.compile(attributes.schema),
-    //    [attributes.schema]
-    //);
+    const { model, schema } = useModel(keySelector);
+    const validate = useValidatorFor(schema);
 
-    return useModel(keySelector);
+    return useMemo(
+        () => ({
+            model,
+            schema,
+            validate
+        }),
+        [
+            model,
+            schema,
+            validate
+        ]
+    );
 }
 
 export const useKey = useModelFor;
