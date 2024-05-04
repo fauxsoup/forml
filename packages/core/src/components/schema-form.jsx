@@ -24,7 +24,6 @@ export function SchemaForm(props) {
         schema,
         form,
     } = props;
-    //const validate = useCallback(util.useValidator(schema), [schema]);
     const mapper = useMemo(
         () => getMapper(props.mapper, SchemaForm),
         [props.mapper]
