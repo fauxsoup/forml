@@ -1,14 +1,11 @@
+const debug = require('debug');
+const { useMemo } = require('react');
+const { useValue } = require('@forml/hooks');
+
+const log = debug('forml:example:condition');
+
 module.exports = {
     formId: 'com.networknt.light.user.address',
-    version: 1,
-    action: [
-        {
-            category: 'user',
-            name: 'addAddress',
-            readOnly: false,
-            title: 'New',
-        },
-    ],
     schema: {
         type: 'object',
         required: ['delivery'],
@@ -94,38 +91,42 @@ module.exports = {
             ],
         },
         {
-            key: 'pickupAddress',
-            condition: "model.delivery === 'P'",
-            type: 'select',
-            titleMap: [
-                {
-                    value: 'address1',
-                    name: '22 Front Street, Toronto ON, P1P1P1',
-                },
-                {
-                    value: 'address2',
-                    name: '10 King Street, Mississauga ON, L1L1L1',
-                },
-            ],
-        },
-        {
             type: 'dynamic',
-            key: [],
-            generate: (props, model) => {
-                let items = [];
-                if (model.delivery === 'S') {
-                    items = [
-                        ...items,
-                        'firstName',
-                        'lastName',
-                        'address',
-                        'city',
-                        'postalCode',
-                        'phone',
-                        'country',
-                        'province',
-                    ];
-                }
+            generate: () => {
+                const delivery = useValue(['delivery']);
+                log('generate(delivery: %o)', delivery);
+                const items = useMemo(() => {
+                    log('generate.items(delivery: %o)', delivery);
+                    if (delivery === 'S') {
+                        return [
+                            'firstName',
+                            'lastName',
+                            'address',
+                            'city',
+                            'postalCode',
+                            'phone',
+                            'country',
+                            'province',
+                        ];
+                    } else {
+                        return [
+                            {
+                                key: 'pickupAddress',
+                                type: 'select',
+                                titleMap: [
+                                    {
+                                        value: 'address1',
+                                        name: '22 Front Street, Toronto ON, P1P1P1',
+                                    },
+                                    {
+                                        value: 'address2',
+                                        name: '10 King Street, Mississauga ON, L1L1L1',
+                                    },
+                                ],
+                            },
+                        ];
+                    }
+                }, [delivery]);
                 return items;
             },
         },
