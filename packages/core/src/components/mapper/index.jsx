@@ -86,5 +86,5 @@ export const mapperShape = t.shape({
 });
 
 export function getMapper(mapper = {}) {
-    return { ...defaultMapper, ...mapper };
+    return { ...defaultMapper(), ...mapper };
 }
