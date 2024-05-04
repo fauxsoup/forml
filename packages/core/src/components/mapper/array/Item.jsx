@@ -1,4 +1,3 @@
-import debug from 'debug';
 import React, { forwardRef, useMemo } from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 
@@ -6,8 +5,6 @@ import { useDecorator, useLocalizer, useArrayActions } from '@forml/hooks';
 import { ARRAY_PLACEHOLDER } from '../../../constants';
 import { clone, traverseForm } from '../../../util';
 import { SchemaField } from '../../schema-field';
-
-const log = debug('forml:core:array:item');
 
 export const Item = forwardRef(function Item(props, ref) {
     const { form, parent, forms, index, disabled } = props;

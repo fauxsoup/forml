@@ -1,4 +1,3 @@
-import debug from 'debug';
 import { useValue, createArrayKeyStore, useDecorator, useLocalizer, useArrayKeys, useActionsFor, useArrayFormActions } from '@forml/hooks';
 import { FormContext } from '@forml/context';
 import t from 'prop-types';
@@ -9,8 +8,6 @@ import shortid from 'shortid';
 import { FormType } from '../../../types';
 import { Item } from './Item';
 import { Range } from './Range';
-
-const log = debug('forml:core:array');
 
 /**
  * @name ArrayComponent

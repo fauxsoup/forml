@@ -1,11 +1,8 @@
-import debug from 'debug';
 import React, { useMemo } from 'react';
 import { useArrayKeyRange } from '@forml/hooks';
 import ObjectPath from 'objectpath';
 
 import { Item } from './Item';
-
-const log = debug('forml:core:array:range');
 
 export function Range(props) {
     const { start, end, form, onChange } = props;
