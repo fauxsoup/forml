@@ -1,4 +1,4 @@
-import { ModelContext } from '@forml/context';
+import { ModelContext, RenderingContext } from '@forml/context';
 import objectPath from 'objectpath';
 import { useCallback, useMemo, useContext as useReactContext } from 'react';
 import { createStore, useStore } from 'zustand';
@@ -21,6 +21,36 @@ import AJV from 'ajv';
  * @return {Context}
  */
 
+export function usePrefix() {
+    const { prefix } = useReactContext(RenderingContext);
+    return useMemo(() => {
+        if (prefix) {
+            if (Array.isArray(prefix)) {
+                return prefix;
+            } else {
+                return objectPath.parse(prefix);
+            }
+        } else {
+            return [];
+        }
+    })
+}
+
+export function usePrefixed(key) {
+    const prefix = usePrefix();
+    return useMemo(() => {
+        if (key) {
+            if (Array.isArray(key)) {
+                return prefix.concat(key);
+            } else {
+                return prefix.concat(objectPath.parse(key));
+            }
+        } else {
+            return prefix;
+        }
+    }, [prefix, key]);
+}
+
 export function createModelStore(schema, model) {
     const ajv = useMemo(() => new AJV({ allErrors: true, strict: false }), []);
     return createStore()(function() {
@@ -37,6 +67,7 @@ export function useAJV() {
 }
 
 export function useActions() {
+    const prefix = usePrefix();
     const store = useModelContext();
     return useMemo(() => ({
         setValue(key, value) {
@@ -45,7 +76,7 @@ export function useActions() {
                 const stack = [];
                 const [currentKey, currentModel, currentSchema] = seek(
                     state.schema,
-                    key,
+                    [...prefix, ...key],
                     state.model,
                     stack
                 );
@@ -63,7 +94,7 @@ export function useActions() {
                 const stack = [];
                 const [currentKey, currentModel, currentSchema] = seek(
                     state.schema,
-                    key,
+                    [...prefix, ...key],
                     state.model,
                     stack
                 );
@@ -81,7 +112,7 @@ export function useActions() {
                 const stack = [];
                 const [currentKey, currentModel, currentSchema] = seek(
                     state.schema,
-                    key,
+                    [...prefix, ...key],
                     state.model,
                     stack
                 );
@@ -107,7 +138,7 @@ export function useActions() {
                 const stack = [];
                 const [currentKey, currentModel, currentSchema] = seek(
                     state.schema,
-                    key,
+                    [...prefix, ...key],
                     state.model,
                     stack
                 );
@@ -130,7 +161,7 @@ export function useActions() {
                 const stack = [];
                 const [currentKey, currentModel, currentSchema] = seek(
                     state.schema,
-                    key,
+                    [...prefix, ...key],
                     state.model,
                     stack
                 );
@@ -147,7 +178,7 @@ export function useActions() {
             })
             return final;
         }
-    }), [store]);
+    }), [prefix, store]);
 }
 
 export function useActionsFor(key, mergeActions = {}) {
@@ -191,10 +222,12 @@ export function useModelContext() {
 }
 
 export function useSchema() {
-    return useModel(state => state.schema)
+    const prefix = usePrefix();
+    return useSchemaFor(prefix);
 }
 
 export function useSchemaFor(key) {
+    key = usePrefixed(key);
     const path = useMemo(() => objectPath.stringify(key), [key]);
     const schemaSelector = useCallback(
         function({ model, schema }) {
@@ -209,14 +242,16 @@ export function useSchemaFor(key) {
         [path]
     );
 
-    return useModel(schemaSelector);
+    return useStore(useModelContext(), useShallow(schemaSelector));
 }
 
-export function useModel(selector) {
-    return useStore(useModelContext(), useShallow(selector))
+export function useModel() {
+    const prefix = usePrefix();
+    return useModelFor(prefix);
 }
 
 export function useValue(key = []) {
+    key = usePrefixed(key);
     const path = useMemo(() => objectPath.stringify(key), [key]);
     const modelSelector = useCallback(
         function({ model, schema }) {
@@ -231,7 +266,7 @@ export function useValue(key = []) {
         [path]
     );
 
-    return useModel(modelSelector);
+    return useStore(useModelContext(), useShallow(modelSelector));
 }
 
 const validators = new WeakMap();
@@ -256,6 +291,7 @@ export function useValidatorFor(schema) {
 }
 
 export function useModelFor(key) {
+    key = usePrefixed(key);
     const path = useMemo(() => objectPath.stringify(key), [key]);
     const keySelector = useCallback(
         function({ model, schema }) {
@@ -274,7 +310,7 @@ export function useModelFor(key) {
         [path]
     );
 
-    const { model, schema } = useModel(keySelector);
+    const { model, schema } = useStore(useModelContext(), useShallow(keySelector));
     const validate = useValidatorFor(schema);
 
     return useMemo(

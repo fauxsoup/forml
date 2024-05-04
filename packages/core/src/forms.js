@@ -46,6 +46,10 @@ export function merge(schema, form = ['*'], options = {}) {
             obj.key = ObjectPath.parse(obj.key);
         }
 
+        if (options.prefix) {
+            obj.key = options.prefix.concat(obj.key);
+        }
+
         if (obj.key) {
             while (obj.key.includes('')) {
                 obj.key[obj.key.indexOf('')] = ARRAY_PLACEHOLDER;
