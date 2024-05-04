@@ -1,9 +1,8 @@
 import debug from 'debug';
 import PropTypes from 'prop-types';
-import React, { memo, useMemo, useCallback } from 'react';
-import isEqual from 'lodash/isEqual';
+import React, { useCallback, useMemo } from 'react';
 
-import { useMappedField, useActionsFor, useModelFor } from '@forml/hooks';
+import { useActionsFor, useMappedField, useModelFor } from '@forml/hooks';
 import { FormType } from '../types';
 
 const log = debug('forml:core:schema-field');
