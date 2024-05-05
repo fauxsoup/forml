@@ -20,22 +20,22 @@ import { defaultMapper, getMapper, mapperShape } from './mapper';
  */
 export function SchemaForm(props) {
     const {
-        model,
-        schema,
+        model = null,
+        schema = { type: 'null' },
+        form = ['*'],
     } = props;
     const mapper = useMemo(
-        () => getMapper(props.mapper),
+        () => getMapper(props.mapper ?? {}),
         [props.mapper]
     );
     const decorator = useMemo(
-        () => getDecorator(props.decorator),
+        () => getDecorator(props.decorator ?? {}),
         [props.decorator]
     );
     const localizer = useMemo(
-        () => getLocalizer(props.localizer),
+        () => getLocalizer(props.localizer ?? {}),
         [props.localizer]
     );
-    const form = useMemo(() => props.form ?? ['*'], [props.form]);
 
     const renderingContext = useMemo(() => ({ mapper, decorator, localizer }), [mapper, decorator, localizer]);
     const modelContext = useRef(createModelStore(schema, model)).current;
