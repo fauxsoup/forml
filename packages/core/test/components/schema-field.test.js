@@ -4,13 +4,16 @@ import React from 'react';
 import { getMapper } from '../../src/components/mapper';
 import { getLocalizer } from '../../src/localizer';
 import * as util from '../../src/util';
-import renderer from 'react-test-renderer';
+import { render } from '@testing-library/react';
 import * as barebones from '@forml/decorator-barebones';
 import { createStore } from 'zustand';
 
-function getModelContext(schema, model = '', errors = {}) {
+function getModelContext(schema, ajv, model = '', errors = {}) {
     return createStore()((set) => ({
-        schema, model, errors,
+        ajv,
+        schema,
+        model,
+        errors,
         setValue: (key, value) => set({ model: { ...model, [key]: value } }),
     }));
 }
@@ -45,28 +48,32 @@ function getRenderingContext() {
 test('does not render if no mapped Field is found for type', function () {
     const schema = { type: 'object' };
     const form = { key: [], type: 'custom', schema };
-    const modelContext = getModelContext(schema, {});
+    const validate = jest.fn();
+    const ajv = { compile: jest.fn(() => validate) };
+    const modelContext = getModelContext(schema, ajv, {});
     const renderingContext = getRenderingContext();
 
-    const component = renderer.create(
+    const { container } = render(
         <RenderingContext.Provider value={renderingContext}>
             <ModelContext.Provider value={modelContext}>
                 <SchemaField form={form} schema={schema} />
             </ModelContext.Provider>
         </RenderingContext.Provider>
     );
-    expect(component).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
 });
 
 test('uses mapper from context', function () {
     const schema = { type: 'string' };
     const form = { key: [], type: 'text', schema };
-    const modelContext = getModelContext(schema, {});
+    const validate = jest.fn();
+    const ajv = { compile: jest.fn(() => validate) };
+    const modelContext = getModelContext(schema, ajv, {});
     const renderingContext = getRenderingContext();
 
     console.error('renderingContext: %O', renderingContext);
 
-    const _component = renderer.create(
+    const _component = render(
         <RenderingContext.Provider value={renderingContext}>
             <ModelContext.Provider value={modelContext}>
                 <SchemaField form={form} schema={schema} />

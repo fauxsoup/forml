@@ -1,7 +1,7 @@
 import { render, fireEvent, waitFor } from '@testing-library/react';
 
 import { SchemaForm, getLocalizer, util } from '../src';
-import { createElement as h } from 'react';
+import React, { createElement as h } from 'react';
 import * as barebones from '@forml/decorator-barebones';
 
 describe('mapper', function () {
@@ -98,7 +98,15 @@ describe('mapper', function () {
                 schema: { type: 'string', enum: ['a', 'b', 'c'] },
             },
         ],
-        [{ key: [], type: 'tabs', title, description, tabs: [] }],
+        [
+            {
+                key: [],
+                type: 'tabs',
+                title,
+                description,
+                tabs: [],
+            },
+        ],
         [
             {
                 key: [],
@@ -131,9 +139,9 @@ describe('mapper', function () {
                 h(SchemaForm, { model, form, schema, localizer, decorator })
             );
 
-            expect(localizer.getLocalizedString).toHaveBeenCalledWith('title');
+            expect(localizer.getLocalizedString).toHaveBeenCalledWith(title);
             expect(localizer.getLocalizedString).toHaveBeenCalledWith(
-                'description'
+                description
             );
         });
 
@@ -144,7 +152,13 @@ describe('mapper', function () {
                 let newModel = jest.fn();
                 let onChange = (event, nextModel) => newModel(nextModel);
                 let { container } = render(
-                    h(SchemaForm, { model, form, schema, onChange, decorator })
+                    <SchemaForm
+                        decorator={decorator}
+                        model={model}
+                        form={form}
+                        schema={schema}
+                        onChange={onChange}
+                    />
                 );
 
                 let inputs = container.querySelectorAll(
