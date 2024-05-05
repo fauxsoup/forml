@@ -140,12 +140,10 @@ const NormalArrayContainer = forwardRef(
         const deco = useDecorator();
         const localizer = useLocalizer();
         const actions = useActionsFor(form.key, useArrayFormActions())
-        const title = useMemo(
-            () =>
-                localizer.getLocalizedString(
-                    titleFun?.() ?? form.title
-                ),
-            [localizer, form, titleFun]
+        const title = localizer.getLocalizedString(
+            form.titleFun
+                ? form.titleFun()
+                : form.title
         );
         const description = localizer.getLocalizedString(form.description);
         const { error } = props;
