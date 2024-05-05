@@ -65,13 +65,11 @@ const NormalArrayItem = forwardRef(function NormalArrayItem(props, ref) {
     const deco = useDecorator();
     const localizer = useLocalizer();
 
-    const title = useMemo(() => {
-        if (form.titleFun) {
-            return (value) => localizer.getLocalizedString(form.titleFun(value));
-        } else if (form.title) {
-            return localizer.getLocalizedString(form.title)
-        }
-    }, [form, localizer]);
+    const title = localizer.getLocalizedString(
+        form.titleFun
+            ? form.titleFun()
+            : form.title
+    );
 
     const arrayActions = useArrayActions(form.key);
     const actions = useMemo(function() {
