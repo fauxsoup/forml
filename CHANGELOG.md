@@ -1,3 +1,27 @@
+# 2.0.0-next.9 (2024-05-05)
+
+
+### Bug Fixes
+
+* **@forml/core, @forml/hooks:** more comprehensive prefix handling 0a20cf3
+* **core:** dynamic: add prefix to RenderingContext 509482b
+* **core:** error/description fixes in text mapper 19798ae
+* **core:** fix array item titleFun usage 10fc02d
+* **core:** fix array titleFun usage 13f3ccc
+* **core:** fix useMemo on droppableId e006abb
+* **core:** restore default prop values 9124f99
+* **core:** restore field validation a55fd58
+* **core:** wrap item onChange in a memoized callback daa56c2
+* **decorator-mui:** hide rowMax prop 684f5ea
+* **example:** fonts and css as webpack assets bb47009
+* **hooks:** add validator to models 014fd1b
+* **hooks:** treat undefined as null in getTypeOf 859faf6
+
+
+### Features
+
+* **core:** optional prefix for SchemaRender 52ca371
+
 # 2.0.0-next.8 (2024-05-03)
 
 
