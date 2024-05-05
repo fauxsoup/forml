@@ -199,11 +199,13 @@ exports[`Material UI with no model renders empty root number consistently 1`] = 
 exports[`Material UI with no model renders empty root object consistently 1`] = `
 <div>
   <ul
-    class="MuiList-root MuiList-dense css-183iplg-MuiList-root"
+    class="MuiList-root MuiList-dense css-1mk9mw3-MuiList-root"
+    flexdirection="column"
+    flexgrow="1"
   >
     <div
-      class="MuiBox-root css-rwzwky"
-      layout="vertical"
+      class="MuiBox-root css-da0a45"
+      g="1"
     >
       <div
         class="MuiFormControl-root css-1lq4zch-MuiFormControl-root"
@@ -221,18 +223,20 @@ exports[`Material UI with no model renders empty root object consistently 1`] = 
         </div>
       </div>
       <ul
-        class="MuiList-root MuiList-dense css-183iplg-MuiList-root"
+        class="MuiList-root MuiList-dense css-1mk9mw3-MuiList-root"
+        flexdirection="column"
+        flexgrow="1"
       >
         <div
-          class="MuiBox-root css-rwzwky"
-          layout="vertical"
+          class="MuiBox-root css-da0a45"
+          g="1"
         >
           <div
             class="MuiFormControl-root css-1lq4zch-MuiFormControl-root"
           >
             <label
-              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-standard MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-standard css-aqpgxn-MuiFormLabel-root-MuiInputLabel-root"
-              data-shrink="false"
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-standard MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-standard css-1c2i806-MuiFormLabel-root-MuiInputLabel-root"
+              data-shrink="true"
             >
               property
             </label>
@@ -244,7 +248,7 @@ exports[`Material UI with no model renders empty root object consistently 1`] = 
                 class="MuiInputBase-input MuiInput-input css-1x51dt5-MuiInputBase-input-MuiInput-input"
                 id="nested.property"
                 type="text"
-                value=""
+                value="0"
               />
             </div>
           </div>

@@ -3,14 +3,17 @@
 exports[`renders with description and no title 1`] = `
 <div>
   <div
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-1lskhvk-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-1ps6pg7-MuiPaper-root"
+    margin="1"
   >
     <ul
-      class="MuiList-root MuiList-dense css-183iplg-MuiList-root"
+      class="MuiList-root MuiList-dense css-1mk9mw3-MuiList-root"
+      flexdirection="column"
+      flexgrow="1"
     >
       <div
-        class="MuiBox-root css-rwzwky"
-        layout="vertical"
+        class="MuiBox-root css-da0a45"
+        g="1"
       />
     </ul>
   </div>
@@ -20,14 +23,17 @@ exports[`renders with description and no title 1`] = `
 exports[`renders with form options Component div 1`] = `
 <div>
   <div
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-1lskhvk-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-1ps6pg7-MuiPaper-root"
+    margin="1"
   >
     <ul
-      class="MuiList-root MuiList-dense css-183iplg-MuiList-root"
+      class="MuiList-root MuiList-dense css-1mk9mw3-MuiList-root"
+      flexdirection="column"
+      flexgrow="1"
     >
       <div
-        class="MuiBox-root css-rwzwky"
-        layout="vertical"
+        class="MuiBox-root css-da0a45"
+        g="1"
       />
     </ul>
   </div>
@@ -37,14 +43,17 @@ exports[`renders with form options Component div 1`] = `
 exports[`renders with form options Component fieldset 1`] = `
 <div>
   <div
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-1lskhvk-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-1ps6pg7-MuiPaper-root"
+    margin="1"
   >
     <ul
-      class="MuiList-root MuiList-dense css-183iplg-MuiList-root"
+      class="MuiList-root MuiList-dense css-1mk9mw3-MuiList-root"
+      flexdirection="column"
+      flexgrow="1"
     >
       <div
-        class="MuiBox-root css-rwzwky"
-        layout="vertical"
+        class="MuiBox-root css-da0a45"
+        g="1"
       />
     </ul>
   </div>
@@ -54,14 +63,17 @@ exports[`renders with form options Component fieldset 1`] = `
 exports[`renders with form options disableGutters false 1`] = `
 <div>
   <div
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-1lskhvk-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-1ps6pg7-MuiPaper-root"
+    margin="1"
   >
     <ul
-      class="MuiList-root MuiList-dense css-183iplg-MuiList-root"
+      class="MuiList-root MuiList-dense css-1mk9mw3-MuiList-root"
+      flexdirection="column"
+      flexgrow="1"
     >
       <div
-        class="MuiBox-root css-rwzwky"
-        layout="vertical"
+        class="MuiBox-root css-da0a45"
+        g="1"
       />
     </ul>
   </div>
@@ -71,14 +83,17 @@ exports[`renders with form options disableGutters false 1`] = `
 exports[`renders with form options disableGutters true 1`] = `
 <div>
   <div
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-1lskhvk-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-1ps6pg7-MuiPaper-root"
+    margin="1"
   >
     <ul
-      class="MuiList-root MuiList-dense css-183iplg-MuiList-root"
+      class="MuiList-root MuiList-dense css-1mk9mw3-MuiList-root"
+      flexdirection="column"
+      flexgrow="1"
     >
       <div
-        class="MuiBox-root css-rwzwky"
-        layout="vertical"
+        class="MuiBox-root css-da0a45"
+        g="1"
       />
     </ul>
   </div>
@@ -88,14 +103,17 @@ exports[`renders with form options disableGutters true 1`] = `
 exports[`renders with form options disableMargin false 1`] = `
 <div>
   <div
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-1lskhvk-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-1ps6pg7-MuiPaper-root"
+    margin="1"
   >
     <ul
-      class="MuiList-root MuiList-dense css-183iplg-MuiList-root"
+      class="MuiList-root MuiList-dense css-1mk9mw3-MuiList-root"
+      flexdirection="column"
+      flexgrow="1"
     >
       <div
-        class="MuiBox-root css-rwzwky"
-        layout="vertical"
+        class="MuiBox-root css-da0a45"
+        g="1"
       />
     </ul>
   </div>
@@ -105,14 +123,17 @@ exports[`renders with form options disableMargin false 1`] = `
 exports[`renders with form options disableMargin true 1`] = `
 <div>
   <div
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-1lskhvk-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-1ps6pg7-MuiPaper-root"
+    margin="1"
   >
     <ul
-      class="MuiList-root MuiList-dense css-183iplg-MuiList-root"
+      class="MuiList-root MuiList-dense css-1mk9mw3-MuiList-root"
+      flexdirection="column"
+      flexgrow="1"
     >
       <div
-        class="MuiBox-root css-rwzwky"
-        layout="vertical"
+        class="MuiBox-root css-da0a45"
+        g="1"
       />
     </ul>
   </div>
@@ -122,14 +143,17 @@ exports[`renders with form options disableMargin true 1`] = `
 exports[`renders with form options disablePadding false 1`] = `
 <div>
   <div
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-1lskhvk-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-1ps6pg7-MuiPaper-root"
+    margin="1"
   >
     <ul
-      class="MuiList-root MuiList-dense css-183iplg-MuiList-root"
+      class="MuiList-root MuiList-dense css-1mk9mw3-MuiList-root"
+      flexdirection="column"
+      flexgrow="1"
     >
       <div
-        class="MuiBox-root css-rwzwky"
-        layout="vertical"
+        class="MuiBox-root css-da0a45"
+        g="1"
       />
     </ul>
   </div>
@@ -139,14 +163,17 @@ exports[`renders with form options disablePadding false 1`] = `
 exports[`renders with form options disablePadding true 1`] = `
 <div>
   <div
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-1lskhvk-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-1ps6pg7-MuiPaper-root"
+    margin="1"
   >
     <ul
-      class="MuiList-root MuiList-dense css-183iplg-MuiList-root"
+      class="MuiList-root MuiList-dense css-1mk9mw3-MuiList-root"
+      flexdirection="column"
+      flexgrow="1"
     >
       <div
-        class="MuiBox-root css-16twzsx"
-        layout="vertical"
+        class="MuiBox-root css-1wobvbm"
+        g="1"
       />
     </ul>
   </div>
@@ -156,14 +183,17 @@ exports[`renders with form options disablePadding true 1`] = `
 exports[`renders with form options elevation 0 1`] = `
 <div>
   <div
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 css-c5pdtz-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 css-ee20y-MuiPaper-root"
+    margin="1"
   >
     <ul
-      class="MuiList-root MuiList-dense css-183iplg-MuiList-root"
+      class="MuiList-root MuiList-dense css-1mk9mw3-MuiList-root"
+      flexdirection="column"
+      flexgrow="1"
     >
       <div
-        class="MuiBox-root css-rwzwky"
-        layout="vertical"
+        class="MuiBox-root css-da0a45"
+        g="1"
       />
     </ul>
   </div>
@@ -173,14 +203,17 @@ exports[`renders with form options elevation 0 1`] = `
 exports[`renders with form options elevation 1 1`] = `
 <div>
   <div
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-1lskhvk-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-1ps6pg7-MuiPaper-root"
+    margin="1"
   >
     <ul
-      class="MuiList-root MuiList-dense css-183iplg-MuiList-root"
+      class="MuiList-root MuiList-dense css-1mk9mw3-MuiList-root"
+      flexdirection="column"
+      flexgrow="1"
     >
       <div
-        class="MuiBox-root css-rwzwky"
-        layout="vertical"
+        class="MuiBox-root css-da0a45"
+        g="1"
       />
     </ul>
   </div>
@@ -190,14 +223,17 @@ exports[`renders with form options elevation 1 1`] = `
 exports[`renders with form options elevation 2 1`] = `
 <div>
   <div
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation2 css-z4i9t5-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation2 css-1mbunh-MuiPaper-root"
+    margin="1"
   >
     <ul
-      class="MuiList-root MuiList-dense css-183iplg-MuiList-root"
+      class="MuiList-root MuiList-dense css-1mk9mw3-MuiList-root"
+      flexdirection="column"
+      flexgrow="1"
     >
       <div
-        class="MuiBox-root css-rwzwky"
-        layout="vertical"
+        class="MuiBox-root css-da0a45"
+        g="1"
       />
     </ul>
   </div>
@@ -207,14 +243,17 @@ exports[`renders with form options elevation 2 1`] = `
 exports[`renders with form options fullWidth false 1`] = `
 <div>
   <div
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-1lskhvk-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-1ps6pg7-MuiPaper-root"
+    margin="1"
   >
     <ul
-      class="MuiList-root MuiList-dense css-183iplg-MuiList-root"
+      class="MuiList-root MuiList-dense css-1mk9mw3-MuiList-root"
+      flexdirection="column"
+      flexgrow="1"
     >
       <div
-        class="MuiBox-root css-rwzwky"
-        layout="vertical"
+        class="MuiBox-root css-da0a45"
+        g="1"
       />
     </ul>
   </div>
@@ -224,14 +263,17 @@ exports[`renders with form options fullWidth false 1`] = `
 exports[`renders with form options fullWidth true 1`] = `
 <div>
   <div
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-1lskhvk-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-1ps6pg7-MuiPaper-root"
+    margin="1"
   >
     <ul
-      class="MuiList-root MuiList-dense css-183iplg-MuiList-root"
+      class="MuiList-root MuiList-dense css-1mk9mw3-MuiList-root"
+      flexdirection="column"
+      flexgrow="1"
     >
       <div
-        class="MuiBox-root css-rwzwky"
-        layout="vertical"
+        class="MuiBox-root css-da0a45"
+        g="1"
       />
     </ul>
   </div>
@@ -241,14 +283,17 @@ exports[`renders with form options fullWidth true 1`] = `
 exports[`renders with form options icon favorite 1`] = `
 <div>
   <div
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-1lskhvk-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-1ps6pg7-MuiPaper-root"
+    margin="1"
   >
     <ul
-      class="MuiList-root MuiList-dense css-183iplg-MuiList-root"
+      class="MuiList-root MuiList-dense css-1mk9mw3-MuiList-root"
+      flexdirection="column"
+      flexgrow="1"
     >
       <div
-        class="MuiBox-root css-rwzwky"
-        layout="vertical"
+        class="MuiBox-root css-da0a45"
+        g="1"
       />
     </ul>
   </div>
@@ -258,14 +303,17 @@ exports[`renders with form options icon favorite 1`] = `
 exports[`renders with form options icon person 1`] = `
 <div>
   <div
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-1lskhvk-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-1ps6pg7-MuiPaper-root"
+    margin="1"
   >
     <ul
-      class="MuiList-root MuiList-dense css-183iplg-MuiList-root"
+      class="MuiList-root MuiList-dense css-1mk9mw3-MuiList-root"
+      flexdirection="column"
+      flexgrow="1"
     >
       <div
-        class="MuiBox-root css-rwzwky"
-        layout="vertical"
+        class="MuiBox-root css-da0a45"
+        g="1"
       />
     </ul>
   </div>
@@ -275,14 +323,17 @@ exports[`renders with form options icon person 1`] = `
 exports[`renders with form options layout horizontal 1`] = `
 <div>
   <div
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-1lskhvk-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-1ps6pg7-MuiPaper-root"
+    margin="1"
   >
     <ul
-      class="MuiList-root MuiList-dense css-183iplg-MuiList-root"
+      class="MuiList-root MuiList-dense css-1mk9mw3-MuiList-root"
+      flexdirection="column"
+      flexgrow="1"
     >
       <div
-        class="MuiBox-root css-10au80u"
-        layout="horizontal"
+        class="MuiBox-root css-1kgidyj"
+        g="1"
       />
     </ul>
   </div>
@@ -292,14 +343,17 @@ exports[`renders with form options layout horizontal 1`] = `
 exports[`renders with form options layout vertical 1`] = `
 <div>
   <div
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-1lskhvk-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-1ps6pg7-MuiPaper-root"
+    margin="1"
   >
     <ul
-      class="MuiList-root MuiList-dense css-183iplg-MuiList-root"
+      class="MuiList-root MuiList-dense css-1mk9mw3-MuiList-root"
+      flexdirection="column"
+      flexgrow="1"
     >
       <div
-        class="MuiBox-root css-rwzwky"
-        layout="vertical"
+        class="MuiBox-root css-da0a45"
+        g="1"
       />
     </ul>
   </div>
@@ -309,11 +363,13 @@ exports[`renders with form options layout vertical 1`] = `
 exports[`renders with no title or description 1`] = `
 <div>
   <ul
-    class="MuiList-root MuiList-dense css-183iplg-MuiList-root"
+    class="MuiList-root MuiList-dense css-1mk9mw3-MuiList-root"
+    flexdirection="column"
+    flexgrow="1"
   >
     <div
-      class="MuiBox-root css-rwzwky"
-      layout="vertical"
+      class="MuiBox-root css-da0a45"
+      g="1"
     />
   </ul>
 </div>
@@ -322,14 +378,17 @@ exports[`renders with no title or description 1`] = `
 exports[`renders with title and description 1`] = `
 <div>
   <div
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-1lskhvk-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-1ps6pg7-MuiPaper-root"
+    margin="1"
   >
     <ul
-      class="MuiList-root MuiList-dense css-183iplg-MuiList-root"
+      class="MuiList-root MuiList-dense css-1mk9mw3-MuiList-root"
+      flexdirection="column"
+      flexgrow="1"
     >
       <div
-        class="MuiBox-root css-rwzwky"
-        layout="vertical"
+        class="MuiBox-root css-da0a45"
+        g="1"
       />
     </ul>
   </div>
@@ -339,14 +398,17 @@ exports[`renders with title and description 1`] = `
 exports[`renders with title and no description 1`] = `
 <div>
   <div
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-1lskhvk-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-1ps6pg7-MuiPaper-root"
+    margin="1"
   >
     <ul
-      class="MuiList-root MuiList-dense css-183iplg-MuiList-root"
+      class="MuiList-root MuiList-dense css-1mk9mw3-MuiList-root"
+      flexdirection="column"
+      flexgrow="1"
     >
       <div
-        class="MuiBox-root css-rwzwky"
-        layout="vertical"
+        class="MuiBox-root css-da0a45"
+        g="1"
       />
     </ul>
   </div>
